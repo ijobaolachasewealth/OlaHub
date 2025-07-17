@@ -1,62 +1,64 @@
+// === OLAHUB JS v1.0 ===
 // File: olahub/js/main.js
 
-document.addEventListener("DOMContentLoaded", () => {
-  // === Hero Typewriter Effect ===
-  const phrases = [
-    "Social Media Accounts",
-    "Virtual Numbers and OTP",
-    "Social Media Boosting",
-    "Strong VPN Logs",
-    "Premium Streaming Logs"
-  ];
+// ------------------------------
+// TYPEWRITER HERO ANIMATION
+// ------------------------------
+const phrases = [
+  "Social Media Accounts",
+  "Virtual Numbers and OTP",
+  "Social Media Boosting",
+  "Strong VPN Logs",
+  "Premium Streaming Logs"
+];
 
-  let currentPhrase = 0;
-  let currentChar = 0;
-  let isDeleting = false;
-  const typewriterTarget = document.getElementById("typewriter-text");
+let currentPhrase = 0;
+let currentChar = 0;
+let isDeleting = false;
 
-  function typeHeroText() {
-    const text = phrases[currentPhrase];
-    const visible = text.substring(0, currentChar);
-    typewriterTarget.innerHTML = visible;
+const typeTarget = document.getElementById("typewriter-text");
 
-    if (!isDeleting && currentChar < text.length) {
-      currentChar++;
-      setTimeout(typeHeroText, 100);
-    } else if (isDeleting && currentChar > 0) {
-      currentChar--;
-      setTimeout(typeHeroText, 50);
-    } else {
-      isDeleting = !isDeleting;
-      if (!isDeleting) currentPhrase = (currentPhrase + 1) % phrases.length;
-      setTimeout(typeHeroText, 1500);
+function typeHeroText() {
+  const text = phrases[currentPhrase];
+  const visible = text.substring(0, currentChar);
+  typeTarget.innerHTML = visible;
+
+  if (!isDeleting && currentChar < text.length) {
+    currentChar++;
+    setTimeout(typeHeroText, 100);
+  } else if (isDeleting && currentChar > 0) {
+    currentChar--;
+    setTimeout(typeHeroText, 50);
+  } else {
+    isDeleting = !isDeleting;
+    if (!isDeleting) currentPhrase = (currentPhrase + 1) % phrases.length;
+    setTimeout(typeHeroText, 1500);
+  }
+}
+
+// ------------------------------
+// SIGNATURE TYPEWRITER (Menu)
+// ------------------------------
+function animateSignature() {
+  const menuSignature = document.getElementById("menuSignature");
+  const signatureText = "|👤| © 𝗜𝗷❂𝗯𝗮 ☯︎𝗹𝗮 𝗖𝗵𝗮𝘀𝗲 𝗪𝗲𝗮𝗹𝘁𝗵™";
+  let i = 0;
+
+  function typeChar() {
+    if (i < signatureText.length) {
+      menuSignature.innerHTML += signatureText.charAt(i);
+      i++;
+      setTimeout(typeChar, 70);
     }
   }
 
-  // Simple fade-in on scroll
-const revealElements = document.querySelectorAll(".services, .testimonials");
-
-function revealOnScroll() {
-  const triggerBottom = window.innerHeight * 0.85;
-
-  revealElements.forEach((el) => {
-    const boxTop = el.getBoundingClientRect().top;
-
-    if (boxTop < triggerBottom) {
-      el.style.opacity = 1;
-      el.style.transform = "translateY(0)";
-    } else {
-      el.style.opacity = 0;
-      el.style.transform = "translateY(30px)";
-    }
-  });
+  typeChar();
 }
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
-
-
+// ------------------------------
+// ON DOM LOAD
+// ------------------------------
+document.addEventListener("DOMContentLoaded", () => {
   typeHeroText();
-
-  // === Animated Signature in Hamburger Menu ===
-  const menuSignature = document.getElementById("
+  animateSignature();
+});

@@ -168,3 +168,32 @@ body {
   white-space: pre-wrap;
   animation: glowText 2s ease-in-out infinite alternate;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.sticky-header a {
+  color: var(--black-color);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+.sticky-header a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background-color: var(--main-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: right;
+}
+
+.sticky-header a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}

@@ -1,4 +1,4 @@
-/* === OLAHUB CSS v1.0 === */
+/* === OLAHUB CSS v1.1 === */
 /* File: olahub/css/style.css */
 
 /* -------------------------
@@ -8,6 +8,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -133,10 +137,25 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition);
+  position: relative;
 }
 
-.sticky-header .nav-links li a:hover {
-  color: var(--main-color);
+.sticky-header .nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background-color: var(--main-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: right;
+}
+
+.sticky-header .nav-links li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 /* -------------------------
@@ -167,33 +186,4 @@ body {
   margin-top: 2rem;
   white-space: pre-wrap;
   animation: glowText 2s ease-in-out infinite alternate;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.sticky-header a {
-  color: var(--black-color);
-  text-decoration: none;
-  margin-left: 1.5rem;
-  position: relative;
-}
-
-.sticky-header a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  height: 2px;
-  width: 100%;
-  background-color: var(--main-color);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: right;
-}
-
-.sticky-header a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
 }

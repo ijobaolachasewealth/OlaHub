@@ -1,28 +1,37 @@
-/* olahub/css/style.css */
+/* === OLAHUB CSS v1.0 === */
+/* File: olahub/css/style.css */
 
-/* Base Reset */
+/* -------------------------
+   RESET & GLOBAL SETTINGS
+---------------------------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Root Variables (you’ll expand this later with HSL system) */
 :root {
+  /* Color Scheme */
   --main-color: hsl(153, 65%, 40%);
   --optional-color: hsl(32, 100%, 50%);
+  --glow-color: #FFA500;
   --white-color: #ffffff;
   --black-color: #000000;
 
+  /* Typography */
   --body-font-family: 'Inter', sans-serif;
   --heading-font-family: 'Paytone One', sans-serif;
+  --menu-font-family: 'Public Sans', sans-serif;
 
+  /* Layout & Styling */
   --font-size: 15px;
   --transition: all ease 0.5s;
   --border-radius: 4px;
 }
 
-/* Body and Fonts */
+/* -------------------------
+   BODY & TYPOGRAPHY
+---------------------------- */
 body {
   font-family: var(--body-font-family);
   background-color: var(--white-color);
@@ -31,7 +40,9 @@ body {
   line-height: 1.6;
 }
 
-/* Hero Section */
+/* -------------------------
+   HERO SECTION
+---------------------------- */
 .hero {
   min-height: 100vh;
   background: linear-gradient(to right, var(--main-color), var(--optional-color));
@@ -63,24 +74,13 @@ body {
   background: var(--main-color);
 }
 
-:root {
-  --main-color: hsl(153, 65%, 40%);
-  --optional-color: hsl(32, 100%, 50%);
-  --glow-color: #FFA500;
-  --font-size: 15px;
-  --transition: all ease 0.5s;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: #fff;
-  color: #000;
-}
-
+/* -------------------------
+   PRELOADER LOGO
+---------------------------- */
 .rolling-glow-logo {
-  animation: roll 1s linear infinite, glow 2s ease-in-out infinite alternate;
   width: 80px;
   height: 80px;
+  animation: roll 1s linear infinite, glow 2s ease-in-out infinite alternate;
 }
 
 @keyframes roll {
@@ -93,7 +93,11 @@ body {
   to { filter: drop-shadow(0 0 20px var(--glow-color)); }
 }
 
-.animated-chase, .animated-ijoba {
+/* -------------------------
+   CHASE & IJOBA TEXT ANIMATIONS
+---------------------------- */
+.animated-chase,
+.animated-ijoba {
   animation: glowText 2s ease-in-out infinite alternate;
   color: var(--glow-color);
 }
@@ -103,25 +107,64 @@ body {
   100% { text-shadow: 0 0 20px var(--glow-color); }
 }
 
+/* -------------------------
+   STICKY HEADER
+---------------------------- */
 .sticky-header {
   position: sticky;
   top: 0;
-  background: #fff;
+  background: var(--white-color);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-header .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.sticky-header .nav-links li a {
+  color: var(--black-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.sticky-header .nav-links li a:hover {
+  color: var(--main-color);
+}
+
+/* -------------------------
+   HAMBURGER MENU SIGNATURE
+---------------------------- */
+.hamburger-menu {
+  background: #f9f9f9;
+  padding: 1rem 2rem;
+}
+
+.hamburger-menu ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.hamburger-menu ul li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e2e2;
+  font-family: var(--body-font-family);
 }
 
 .menu-footer-signature {
-  font-family: 'Public Sans', sans-serif;
+  font-family: var(--menu-font-family);
   font-size: 14px;
   color: var(--glow-color);
   text-align: center;
   margin-top: 2rem;
   white-space: pre-wrap;
+  animation: glowText 2s ease-in-out infinite alternate;
 }
-
-/* Placeholder for glowing/animated text later */
-

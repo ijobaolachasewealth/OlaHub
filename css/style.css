@@ -261,6 +261,21 @@ button:focus,
   display: none;
 }
 
+.menu-close-button {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: right;
+  cursor: pointer;
+  color: var(--black-color);
+  padding-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.menu-close-button:hover {
+  color: var(--main-color);
+  transform: scale(1.2);
+}
+
 /* -------------------------
    PRELOADER SCREEN
 ---------------------------- */

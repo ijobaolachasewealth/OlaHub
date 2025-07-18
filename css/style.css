@@ -1,4 +1,4 @@
-/* === OLAHUB CSS v1.3 === */
+/* === OLAHUB CSS v1.4 === */
 /* File: olahub/css/style.css */
 
 /* -------------------------
@@ -15,13 +15,7 @@ html, body {
   will-change: transform, opacity;
 }
 
-.hero-section {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
 :root {
-  /* Light Theme - Default */
   --main-color: hsl(153, 65%, 40%);
   --optional-color: hsl(32, 100%, 50%);
   --glow-color: #FFA500;
@@ -41,7 +35,7 @@ html, body {
    DARK MODE OVERRIDE
 ---------------------------- */
 [data-theme="dark"] {
-  --white-color: #111827;
+  --white-color: #1e293b;
   --black-color: #ffffff;
   --main-color: hsl(153, 80%, 30%);
   --optional-color: hsl(32, 100%, 60%);
@@ -70,7 +64,7 @@ body {
 }
 
 /* -------------------------
-   FOCUS STYLES (Accessibility)
+   FOCUS STYLES
 ---------------------------- */
 a:focus,
 button:focus,
@@ -83,7 +77,7 @@ button:focus,
 /* -------------------------
    HERO SECTION
 ---------------------------- */
-.hero {
+.hero-section {
   min-height: 100vh;
   background: linear-gradient(to right, var(--main-color), var(--optional-color));
   color: white;
@@ -92,9 +86,10 @@ button:focus,
   align-items: center;
   text-align: center;
   padding: 4rem 2rem;
+  flex-direction: column;
 }
 
-.hero h1 {
+.hero-section h1 {
   font-family: var(--heading-font-family);
   font-size: 2.5rem;
 }
@@ -110,10 +105,13 @@ button:focus,
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  will-change: transform, box-shadow;
 }
 
 .cta-button:hover {
   background: var(--main-color);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--optional-color);
 }
 
 /* -------------------------
@@ -123,6 +121,13 @@ button:focus,
   width: 80px;
   height: 80px;
   animation: roll 1s linear infinite, glow 2s ease-in-out infinite alternate;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.rolling-glow-logo:hover {
+  transform: scale(1.1) rotate(10deg);
+  filter: drop-shadow(0 0 25px var(--glow-color));
 }
 
 @keyframes roll {
@@ -136,12 +141,19 @@ button:focus,
 }
 
 /* -------------------------
-   CHASE & IJOBA TEXT ANIMATIONS
+   CHASE & IJOBA TEXT
 ---------------------------- */
 .animated-chase,
 .animated-ijoba {
   animation: glowText 2s ease-in-out infinite alternate;
   color: var(--glow-color);
+}
+
+.animated-chase:hover,
+.animated-ijoba:hover {
+  text-shadow: 0 0 25px var(--glow-color), 0 0 35px var(--glow-color);
+  transform: scale(1.05);
+  animation-duration: 0.8s;
 }
 
 @keyframes glowText {
@@ -176,6 +188,7 @@ button:focus,
   font-weight: 500;
   transition: var(--transition);
   position: relative;
+  will-change: transform, box-shadow;
 }
 
 .sticky-header .nav-links li a::after {
@@ -191,29 +204,75 @@ button:focus,
   transform-origin: right;
 }
 
+.sticky-header .nav-links li a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--optional-color);
+}
+
 .sticky-header .nav-links li a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
 /* -------------------------
-   HAMBURGER MENU SIGNATURE
+   HAMBURGER MENU
 ---------------------------- */
+.hamburger-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  z-index: 1500;
+}
+
 .hamburger-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
   background: #f9f9f9;
+  box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
   padding: 1rem 2rem;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 1400;
+}
+
+.hamburger-menu.active {
+  transform: translateX(0);
 }
 
 .hamburger-menu ul {
   list-style: none;
   padding-left: 0;
-  margin-bottom: 1rem;
 }
 
 .hamburger-menu ul li {
   padding: 0.75rem 0;
   border-bottom: 1px solid #e2e2e2;
   font-family: var(--body-font-family);
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideInMenuItem 0.4s ease forwards;
+  will-change: transform, opacity;
+}
+
+.hamburger-menu ul li:nth-child(1) { animation-delay: 0.1s; }
+.hamburger-menu ul li:nth-child(2) { animation-delay: 0.2s; }
+.hamburger-menu ul li:nth-child(3) { animation-delay: 0.3s; }
+.hamburger-menu ul li:nth-child(4) { animation-delay: 0.4s; }
+.hamburger-menu ul li:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideInMenuItem {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .menu-footer-signature {
@@ -226,58 +285,31 @@ button:focus,
   animation: glowText 2s ease-in-out infinite alternate;
 }
 
-.hamburger-icon {
-  font-size: 2rem;
-  cursor: pointer;
-  user-select: none;
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 0.5rem 0.8rem;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-  z-index: 1500;
-}
-
-.hamburger-menu {
+/* -------------------------
+   MENU OVERLAY
+---------------------------- */
+.menu-overlay {
   position: fixed;
   top: 0;
-  right: 0;
-  width: 280px;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  background: white;
-  box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
-  transform: translateX(100%);
-  transition: transform 0.4s ease;
-  z-index: 1400;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
-
-.hamburger-menu.active {
-  transform: translateX(0);
+.menu-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
 }
-
-.hamburger-menu.hidden {
+.menu-overlay.hidden {
   display: none;
 }
 
-.menu-close-button {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: right;
-  cursor: pointer;
-  color: var(--black-color);
-  padding-bottom: 1rem;
-  transition: var(--transition);
-}
-
-.menu-close-button:hover {
-  color: var(--main-color);
-  transform: scale(1.2);
-}
-
 /* -------------------------
-   PRELOADER SCREEN
+   PRELOADER
 ---------------------------- */
 #preloader {
   position: fixed;
@@ -306,85 +338,14 @@ button:focus,
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
 .scroll-fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* -------------------------
-   MICRO-INTERACTIONS
+   CUSTOM CURSOR
 ---------------------------- */
-.cta-button:hover,
-.hamburger-menu ul li:hover,
-.sticky-header a:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px var(--optional-color);
-}
-
-.animated-chase:hover,
-.animated-ijoba:hover {
-  text-shadow: 0 0 25px var(--glow-color), 0 0 35px var(--glow-color);
-  transform: scale(1.05);
-  animation-duration: 0.8s;
-}
-
-a, button, .cta-button, .rolling-glow-logo {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.rolling-glow-logo:hover {
-  transform: scale(1.1) rotate(10deg);
-  filter: drop-shadow(0 0 25px var(--glow-color));
-}
-
-/* 🌈 Shifting Background */
-.hero-gradient {
-  background: linear-gradient(-45deg, #22c55e, #f97316, #0ea5e9, #111827);
-  background-size: 400% 400%;
-  animation: gradientShift 12s ease infinite;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* ✍️ Glowing Typewriter Text */
-.glow-text {
-  font-weight: bold;
-  color: #facc15;
-  text-shadow: 0 0 6px #facc15, 0 0 12px #fb923c;
-}
-
-/* 🔘 CTA Button Glowing + Morph Effect */
-.cta-button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(135deg, #facc15, #fb923c, #22c55e);
-  background-size: 200% 200%;
-  z-index: -1;
-  filter: blur(10px);
-  opacity: 0.6;
-  animation: pulse-bg 4s ease-in-out infinite;
-  transition: opacity 0.3s;
-}
-
-.cta-button:hover::before {
-  opacity: 1;
-}
-
-@keyframes pulse-bg {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* 🌟 Custom Cursor */
 .custom-cursor {
   position: fixed;
   width: 30px;
@@ -399,13 +360,11 @@ a, button, .cta-button, .rolling-glow-logo {
   mix-blend-mode: difference;
   transform: translate3d(0, 0, 0);
 }
-
 .custom-cursor.active {
   transform: scale(2);
   background-color: rgba(250, 204, 21, 0.4);
   opacity: 0.8;
 }
-
 .custom-cursor::before {
   content: '';
   position: absolute;
@@ -419,16 +378,59 @@ a, button, .cta-button, .rolling-glow-logo {
   animation: cursorPulse 1.8s infinite ease-in-out;
   z-index: -1;
 }
-
 @keyframes cursorPulse {
   0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
   50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.3; }
   100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
-/* ==========================
-   📱 MOBILE RESPONSIVENESS
-============================= */
+/* -------------------------
+   BACKGROUND + TYPEWRITER
+---------------------------- */
+.hero-gradient {
+  background: linear-gradient(-45deg, #22c55e, #f97316, #0ea5e9, #111827);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.glow-text {
+  font-weight: bold;
+  color: #facc15;
+  text-shadow: 0 0 6px #facc15, 0 0 12px #fb923c;
+}
+
+/* -------------------------
+   CTA MORPHING EFFECT
+---------------------------- */
+.cta-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #facc15, #fb923c, #22c55e);
+  background-size: 200% 200%;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.6;
+  animation: pulse-bg 4s ease-in-out infinite;
+  transition: opacity 0.3s;
+}
+.cta-button:hover::before {
+  opacity: 1;
+}
+@keyframes pulse-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* -------------------------
+   RESPONSIVE STYLES
+---------------------------- */
 @media (max-width: 768px) {
   .hero-section {
     padding: 4rem 1.5rem;
@@ -450,10 +452,6 @@ a, button, .cta-button, .rolling-glow-logo {
     font-size: 1rem;
   }
 
-  .hero-section .rellax {
-    display: none;
-  }
-
   .sticky-header {
     flex-direction: column;
     align-items: flex-start;
@@ -465,10 +463,6 @@ a, button, .cta-button, .rolling-glow-logo {
     gap: 1rem;
     width: 100%;
     padding-top: 0.5rem;
-  }
-
-  .hamburger-menu ul li {
-    padding: 1rem 0;
   }
 
   .rolling-glow-logo {
@@ -488,79 +482,5 @@ a, button, .cta-button, .rolling-glow-logo {
   .scroll-fade-in {
     opacity: 1 !important;
     transform: translateY(0) !important;
-  }
-}
-
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-  z-index: 1390;
-  transition: opacity 0.3s ease;
-}
-
-.menu-overlay.hidden {
-  display: none;
-  opacity: 0;
-}
-
-.menu-overlay.visible {
-  display: block;
-  opacity: 1;
-}
-
-.hamburger-menu ul li {
-  opacity: 0;
-  transform: translateX(30px);
-  animation: slideInMenuItem 0.4s ease forwards;
-}
-
-.hamburger-menu ul li:nth-child(1) { animation-delay: 0.1s; }
-.hamburger-menu ul li:nth-child(2) { animation-delay: 0.2s; }
-.hamburger-menu ul li:nth-child(3) { animation-delay: 0.3s; }
-.hamburger-menu ul li:nth-child(4) { animation-delay: 0.4s; }
-.hamburger-menu ul li:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes slideInMenuItem {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* 🔲 Overlay behind hamburger menu */
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1300;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.menu-overlay.visible {
-  opacity: 1;
-  pointer-events: all;
-}
-
-/* ✨ Animate each li item in hamburger */
-.hamburger-menu ul li {
-  opacity: 0;
-  transform: translateX(30px);
-  animation: slideIn 0.4s forwards;
-  animation-delay: calc(0.1s * var(--i));
-}
-
-@keyframes slideIn {
-  to {
-    opacity: 1;
-    transform: translateX(0);
   }
 }

@@ -56,6 +56,19 @@ function animateSignature() {
 }
 
 // ------------------------------
+// PRELOADER FADE OUT ON LOAD
+// ------------------------------
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    preloader.classList.add("fade-out");
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 800);
+  }
+});
+
+// ------------------------------
 // ON DOM LOAD
 // ------------------------------
 document.addEventListener("DOMContentLoaded", () => {

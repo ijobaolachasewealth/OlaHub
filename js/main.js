@@ -145,3 +145,25 @@ window.addEventListener('scroll', () => {
     header.classList.remove('shrink');
   }
 });
+
+// ------------------------------
+// HAMBURGER TOGGLE BEHAVIOR
+// ------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById("hamburgerToggle");
+  const menu = document.getElementById("mobileMenu");
+
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      const isActive = menu.classList.contains("active");
+
+      if (isActive) {
+        menu.classList.remove("active");
+        setTimeout(() => menu.classList.add("hidden"), 400); // hide after animation
+      } else {
+        menu.classList.remove("hidden");
+        setTimeout(() => menu.classList.add("active"), 10); // allow DOM render first
+      }
+    });
+  }
+});

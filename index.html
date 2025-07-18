@@ -61,6 +61,27 @@
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
+
+  <!-- CDN -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+  fullScreen: { enable: false },
+  background: { color: "transparent" },
+  particles: {
+    number: { value: 30 },
+    color: { value: "#facc15" },
+    shape: { type: "circle" },
+    opacity: { value: 0.6 },
+    size: { value: { min: 2, max: 4 } },
+    move: { enable: true, speed: 1 }
+  },
+  interactivity: {
+    events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+    modes: { repulse: { distance: 60, duration: 0.4 } }
+  }
+});
+</script>
 </body>
 </html>
 

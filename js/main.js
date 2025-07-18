@@ -75,3 +75,22 @@ document.addEventListener("DOMContentLoaded", () => {
   typeHeroText();
   animateSignature();
 });
+
+// ------------------------------
+// SCROLL ANIMATION TRIGGER
+// ------------------------------
+function handleScrollAnimations() {
+  const elements = document.querySelectorAll('.scroll-fade-in');
+
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight - 100;
+
+    if (inView) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', handleScrollAnimations);
+window.addEventListener('load', handleScrollAnimations);

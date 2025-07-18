@@ -1,147 +1,71 @@
-<!-- OlaHub/index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OLAHUB - Your Gateway to Digital Access</title>
-
-  <!-- ✅ Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
-
-  <!-- ✅ Styles -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- ✅ Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Paytone+One&family=Public+Sans&family=Roboto&display=swap" rel="stylesheet" />
-
-  <!-- ✅ AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>OLAHUB - Your Gateway to Digital Power</title>
+  <link rel="stylesheet" href="olahub/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Paytone+One&family=Public+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<!-- ✅ Hamburger Toggle Button -->
-<div id="hamburgerToggle" class="hamburger-icon">☰</div>
-
-<!-- ✅ Preloader -->
-<div id="preloader">
-  <img src="assets/images/logo-loading.png" alt="OlaHub Logo" class="rolling-glow-logo" />
-</div>
-
-<!-- ✅ Hero Section -->
-<header id="hero" class="hero-section relative overflow-hidden min-h-screen flex items-center justify-center text-white z-10 px-6">
-  <!-- Gradient Background -->
-  <div class="absolute inset-0 z-0 hero-gradient"></div>
-
-  <!-- Particles -->
-  <div id="tsparticles" class="absolute inset-0 z-0"></div>
-
-  <!-- SVG Glow Element -->
-  <div class="absolute z-10 w-96 h-96 opacity-30 blur-3xl animate-pulse pointer-events-none rellax" data-rellax-speed="-3">
-    <svg viewBox="0 0 200 200" class="w-full h-full">
-      <defs>
-        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#facc15" />
-          <stop offset="100%" stop-color="transparent" />
-        </radialGradient>
-      </defs>
-      <circle cx="100" cy="100" r="100" fill="url(#glow)" />
-    </svg>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="olahub/img/logo.png" alt="Loading..." class="rolling-glow-logo" />
   </div>
 
-  <!-- Floating Words -->
-  <div class="absolute text-[8rem] font-bold text-white opacity-5 pointer-events-none rellax" data-rellax-speed="2" style="top: 20%; left: 10%;">
-    CHASE
+  <!-- Sticky Header -->
+  <header class="sticky-header">
+    <div class="logo">
+      <img src="olahub/img/logo.png" alt="OLAHUB Logo" class="rolling-glow-logo" />
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#market">Marketplace</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hamburger Menu Button -->
+  <div class="hamburger-icon" id="hamburgerBtn">☰</div>
+
+  <!-- Hamburger Menu -->
+  <div class="menu-overlay hidden" id="menuOverlay"></div>
+  <div class="hamburger-menu hidden" id="hamburgerMenu">
+    <div class="menu-close-button" id="closeMenu">×</div>
+    <ul>
+      <li style="--i:1">Dashboard</li>
+      <li style="--i:2">My Orders</li>
+      <li style="--i:3">Top-up Wallet</li>
+      <li style="--i:4">Settings</li>
+      <li style="--i:5">Logout</li>
+    </ul>
+    <div class="menu-footer-signature">|👤| © 𝗜𝗝❂𝗕𝗔 ☯︎𝗟𝗔 𝗖𝗛𝗔𝗦𝗘 𝗪𝗘𝗔𝗟𝗧𝗛™</div>
   </div>
-  <div class="absolute text-[7rem] font-bold text-white opacity-5 pointer-events-none rellax" data-rellax-speed="4" style="bottom: 10%; right: 5%;">
-    IJOBA
-  </div>
 
-  <!-- Hero Content -->
-  <div class="z-20 text-center space-y-6 max-w-2xl">
-    <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-      Your Gateway to <br />
-      <span id="typewriter-text" class="glow-text"></span>
-    </h1>
-    <p class="hero-subtitle text-lg opacity-80">Powering Your Social Media Journey</p>
-    <a href="#" class="cta-button relative inline-block px-8 py-4 rounded-full font-semibold text-white">Get Started</a>
-  </div>
-</header>
+  <!-- Hero Section -->
+  <section class="hero-section hero-gradient scroll-fade-in">
+    <div>
+      <h1>Your Gateway to <span class="glow-text" id="typewriter"></span></h1>
+      <p class="hero-subtitle">Elevating Digital Services with <span class="animated-ijoba">Ijoba</span> Power</p>
+      <a href="#get-started" class="cta-button">Get Started</a>
+    </div>
+  </section>
 
-<!-- ✅ Scroll Sections -->
-<section id="services" class="services scroll-fade-in" data-aos="fade-up">
-  <h2 class="animated-chase" data-aos="zoom-in" data-aos-delay="100">Explore Our Services</h2>
-</section>
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor"></div>
 
-<section id="testimonials" class="testimonials scroll-fade-in" data-aos="fade-up">
-  <h2 class="animated-ijoba" data-aos="zoom-in" data-aos-delay="100">What Our Clients Say</h2>
-</section>
-
-<!-- ✅ Sticky Header -->
-<nav class="sticky-header" id="mainHeader">
-  <div class="logo">
-    <img src="assets/images/logo-loading.png" alt="OlaHub Logo" class="header-logo" />
-  </div>
-  <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-  </ul>
-</nav>
-
-<!-- ✅ Hamburger Overlay + Menu -->
-<div id="menuOverlay" class="menu-overlay hidden"></div>
-
-<div class="hamburger-menu hidden" id="mobileMenu">
-  <div class="menu-close-button" id="menuCloseBtn">×</div>
-  <ul>
-    <li>Dashboard</li>
-    <li>Shop</li>
-    <li>Accounts</li>
-    <li>Boosting</li>
-    <li>Blog</li>
-  </ul>
-  <div class="menu-footer-signature" id="menuSignature"></div>
-</div>
-
-<!-- ✅ Custom Cursor -->
-<div id="custom-cursor" class="custom-cursor hidden lg:block"></div>
-
-<!-- ✅ Main Script -->
-<script src="js/main.js"></script>
-
-<!-- ✅ Particles -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
-<script>
-  tsParticles.load("tsparticles", {
-    fullScreen: { enable: false },
-    background: { color: "transparent" },
-    particles: {
-      number: { value: 30 },
-      color: { value: "#facc15" },
-      shape: { type: "circle" },
-      opacity: { value: 0.6 },
-      size: { value: { min: 2, max: 4 } },
-      move: { enable: true, speed: 1 }
-    },
-    interactivity: {
-      events: { onHover: { enable: true, mode: "repulse" }, resize: true },
-      modes: { repulse: { distance: 60, duration: 0.4 } }
-    }
-  });
-</script>
-
-<!-- ✅ AOS Init -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: true });
-</script>
-
-<!-- ✅ Rellax Init -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
-<script>
-  new Rellax('.rellax');
-</script>
-
+  <!-- Scripts -->
+  <script src="olahub/js/scroll.js"></script>
+  <script src="olahub/js/menu.js"></script>
+  <script src="olahub/js/typewriter.js"></script>
+  <script src="olahub/js/preloader.js"></script>
+  <script src="olahub/js/cursor.js"></script>
 </body>
 </html>

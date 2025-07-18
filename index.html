@@ -2,39 +2,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OLAHUB - Your Gateway to Digital Access</title>
 
   <!-- ✅ Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
 
   <!-- ✅ Styles -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 
   <!-- ✅ Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Paytone+One&family=Public+Sans&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Paytone+One&family=Public+Sans&family=Roboto&display=swap" rel="stylesheet" />
 
   <!-- ✅ AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
 
-<!-- 1. ✅ Preloader with Real Logo -->
+<!-- ✅ Hamburger Toggle Button -->
+<div id="hamburgerToggle" class="hamburger-icon">☰</div>
+
+<!-- ✅ Preloader -->
 <div id="preloader">
-  <img src="assets/images/logo-loading.png" alt="OlaHub Logo" class="rolling-glow-logo">
+  <img src="assets/images/logo-loading.png" alt="OlaHub Logo" class="rolling-glow-logo" />
 </div>
 
-<!-- 2. Hero Section -->
+<!-- ✅ Hero Section -->
 <header id="hero" class="hero-section relative overflow-hidden min-h-screen flex items-center justify-center text-white z-10 px-6">
-
-  <!-- 🌈 Gradient Background -->
+  <!-- Gradient Background -->
   <div class="absolute inset-0 z-0 hero-gradient"></div>
 
-  <!-- ✨ Particles -->
+  <!-- Particles -->
   <div id="tsparticles" class="absolute inset-0 z-0"></div>
 
-  <!-- 🌟 SVG Glow -->
+  <!-- SVG Glow Element -->
   <div class="absolute z-10 w-96 h-96 opacity-30 blur-3xl animate-pulse pointer-events-none rellax" data-rellax-speed="-3">
     <svg viewBox="0 0 200 200" class="w-full h-full">
       <defs>
@@ -47,17 +49,15 @@
     </svg>
   </div>
 
-  <!-- 💬 Floating Chase -->
+  <!-- Floating Words -->
   <div class="absolute text-[8rem] font-bold text-white opacity-5 pointer-events-none rellax" data-rellax-speed="2" style="top: 20%; left: 10%;">
     CHASE
   </div>
-
-  <!-- 💬 Floating IJOBA -->
   <div class="absolute text-[7rem] font-bold text-white opacity-5 pointer-events-none rellax" data-rellax-speed="4" style="bottom: 10%; right: 5%;">
     IJOBA
   </div>
 
-  <!-- 🚀 Hero Content -->
+  <!-- Hero Content -->
   <div class="z-20 text-center space-y-6 max-w-2xl">
     <h1 class="text-4xl md:text-6xl font-bold leading-tight">
       Your Gateway to <br />
@@ -68,7 +68,7 @@
   </div>
 </header>
 
-<!-- 3. Scroll Sections -->
+<!-- ✅ Scroll Sections -->
 <section id="services" class="services scroll-fade-in" data-aos="fade-up">
   <h2 class="animated-chase" data-aos="zoom-in" data-aos-delay="100">Explore Our Services</h2>
 </section>
@@ -77,7 +77,7 @@
   <h2 class="animated-ijoba" data-aos="zoom-in" data-aos-delay="100">What Our Clients Say</h2>
 </section>
 
-<!-- 4. Sticky Header -->
+<!-- ✅ Sticky Header -->
 <nav class="sticky-header" id="mainHeader">
   <div class="logo">
     <img src="assets/images/logo-loading.png" alt="OlaHub Logo" class="header-logo" />
@@ -89,9 +89,10 @@
   </ul>
 </nav>
 
+<!-- ✅ Hamburger Overlay + Menu -->
 <div id="menuOverlay" class="menu-overlay hidden"></div>
 
-<div class="hamburger-menu" id="mobileMenu">
+<div class="hamburger-menu hidden" id="mobileMenu">
   <div class="menu-close-button" id="menuCloseBtn">×</div>
   <ul>
     <li>Dashboard</li>
@@ -103,47 +104,44 @@
   <div class="menu-footer-signature" id="menuSignature"></div>
 </div>
 
-<!-- Scripts -->
+<!-- ✅ Custom Cursor -->
+<div id="custom-cursor" class="custom-cursor hidden lg:block"></div>
+
+<!-- ✅ Main Script -->
 <script src="js/main.js"></script>
 
-<!-- Particles -->
+<!-- ✅ Particles -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
 <script>
-tsParticles.load("tsparticles", {
-  fullScreen: { enable: false },
-  background: { color: "transparent" },
-  particles: {
-    number: { value: 30 },
-    color: { value: "#facc15" },
-    shape: { type: "circle" },
-    opacity: { value: 0.6 },
-    size: { value: { min: 2, max: 4 } },
-    move: { enable: true, speed: 1 }
-  },
-  interactivity: {
-    events: { onHover: { enable: true, mode: "repulse" }, resize: true },
-    modes: { repulse: { distance: 60, duration: 0.4 } }
-  }
-});
-</script>
-
-<!-- AOS Init -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000,
-    once: true,
+  tsParticles.load("tsparticles", {
+    fullScreen: { enable: false },
+    background: { color: "transparent" },
+    particles: {
+      number: { value: 30 },
+      color: { value: "#facc15" },
+      shape: { type: "circle" },
+      opacity: { value: 0.6 },
+      size: { value: { min: 2, max: 4 } },
+      move: { enable: true, speed: 1 }
+    },
+    interactivity: {
+      events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+      modes: { repulse: { distance: 60, duration: 0.4 } }
+    }
   });
 </script>
 
-<!-- Rellax Init -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+<!-- ✅ AOS Init -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-  const rellax = new Rellax('.rellax');
+  AOS.init({ duration: 1000, once: true });
 </script>
 
-<!-- Custom Cursor -->
-<div id="custom-cursor" class="custom-cursor hidden lg:block"></div>
+<!-- ✅ Rellax Init -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+<script>
+  new Rellax('.rellax');
+</script>
 
 </body>
 </html>

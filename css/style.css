@@ -209,3 +209,35 @@ body {
   opacity: 0;
   visibility: hidden;
 }
+
+/* -------------------------
+   SCROLL ANIMATIONS
+---------------------------- */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -------------------------
+   MICRO-HOVER INTERACTIONS
+---------------------------- */
+.cta-button:hover,
+.hamburger-menu ul li:hover,
+.sticky-header a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--optional-color);
+}
+
+/* Extra shine when hovering IJOBA or CHASE words */
+.animated-chase:hover,
+.animated-ijoba:hover {
+  text-shadow: 0 0 25px var(--glow-color), 0 0 35px var(--glow-color);
+  transform: scale(1.05);
+}
+

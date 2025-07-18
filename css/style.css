@@ -511,3 +511,22 @@ a, button, .cta-button, .rolling-glow-logo {
   display: block;
   opacity: 1;
 }
+
+.hamburger-menu ul li {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideInMenuItem 0.4s ease forwards;
+}
+
+.hamburger-menu ul li:nth-child(1) { animation-delay: 0.1s; }
+.hamburger-menu ul li:nth-child(2) { animation-delay: 0.2s; }
+.hamburger-menu ul li:nth-child(3) { animation-delay: 0.3s; }
+.hamburger-menu ul li:nth-child(4) { animation-delay: 0.4s; }
+.hamburger-menu ul li:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideInMenuItem {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

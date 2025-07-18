@@ -12,6 +12,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter&family=Paytone+One&family=Public+Sans&family=Roboto&display=swap" rel="stylesheet">
 
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -53,12 +55,13 @@
   </div>
 </header>
 
-<section class="services scroll-fade-in">
-  <h2 class="animated-chase">Explore Our Services</h2>
+<!-- 3. Scroll-Animated Sections -->
+<section class="services scroll-fade-in" data-aos="fade-up">
+  <h2 class="animated-chase" data-aos="zoom-in" data-aos-delay="100">Explore Our Services</h2>
 </section>
 
-<section class="testimonials scroll-fade-in">
-  <h2 class="animated-ijoba">What Our Clients Say</h2>
+<section class="testimonials scroll-fade-in" data-aos="fade-up">
+  <h2 class="animated-ijoba" data-aos="zoom-in" data-aos-delay="100">What Our Clients Say</h2>
 </section>
 
 <!-- 4. Sticky Header -->
@@ -83,10 +86,10 @@
   <div class="menu-footer-signature" id="menuSignature"></div>
 </div>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
+<!-- Scripts -->
+<script src="js/main.js"></script>
 
-  <!-- CDN -->
+<!-- Particle JS -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
 <script>
 tsParticles.load("tsparticles", {
@@ -106,6 +109,14 @@ tsParticles.load("tsparticles", {
   }
 });
 </script>
+
+<!-- AOS Animation Init -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
 </body>
 </html>
-

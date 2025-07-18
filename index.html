@@ -21,11 +21,35 @@
 </div>
 
 <!-- 2. Hero Section with Typewriter Header -->
-<header class="hero">
-  <div class="hero-content">
-    <h1>Your Gateway to <span id="typewriter-text"></span></h1>
-    <p class="hero-subtitle">Powering Your Social Media Journey</p>
-    <a href="#" class="cta-button">Get Started</a>
+<header class="hero-section relative overflow-hidden min-h-screen flex items-center justify-center text-white z-10 px-6">
+
+  <!-- 🌈 Animated Gradient Background -->
+  <div class="absolute inset-0 z-0 hero-gradient"></div>
+
+  <!-- ✨ Particle JS Layer -->
+  <div id="tsparticles" class="absolute inset-0 z-0"></div>
+
+  <!-- 🌟 SVG Glow -->
+  <div class="absolute z-10 w-96 h-96 opacity-30 blur-3xl animate-pulse pointer-events-none">
+    <svg viewBox="0 0 200 200" class="w-full h-full">
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#facc15" />
+          <stop offset="100%" stop-color="transparent" />
+        </radialGradient>
+      </defs>
+      <circle cx="100" cy="100" r="100" fill="url(#glow)" />
+    </svg>
+  </div>
+
+  <!-- 🚀 Hero Content -->
+  <div class="z-20 text-center space-y-6 max-w-2xl">
+    <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+      Your Gateway to <br />
+      <span id="typewriter-text" class="glow-text"></span>
+    </h1>
+    <p class="hero-subtitle text-lg opacity-80">Powering Your Social Media Journey</p>
+    <a href="#" class="cta-button relative inline-block px-8 py-4 rounded-full font-semibold text-white">Get Started</a>
   </div>
 </header>
 

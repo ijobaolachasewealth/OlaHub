@@ -1,4 +1,4 @@
-// === OLAHUB JS v1.1 ===
+// === OLAHUB JS v1.2 ===
 // File: olahub/js/main.js
 
 // ------------------------------
@@ -42,6 +42,7 @@ function typeHeroText() {
 function animateSignature() {
   const menuSignature = document.getElementById("menuSignature");
   const signatureText = "|👤| © 𝗜𝗷❂𝗯𝗮 ☯︎𝗹𝗮 𝗖𝗵𝗮𝘀𝗲 𝗪𝗲𝗮𝗹𝘁𝗵™";
+  menuSignature.innerHTML = "";
   let i = 0;
 
   function typeChar() {
@@ -67,17 +68,16 @@ window.addEventListener("load", () => {
     }, 800);
   }
 
-  // Trigger scroll animations just once after everything loads
   handleScrollAnimations();
 });
 
 // ------------------------------
-// ON DOM LOAD
+// DOM READY INITIALIZATION
 // ------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   typeHeroText();
-  animateSignature();
   initCustomCursor();
+  initHamburgerMenu();
 });
 
 // ------------------------------
@@ -85,20 +85,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // ------------------------------
 function handleScrollAnimations() {
   const elements = document.querySelectorAll('.scroll-fade-in');
-
   elements.forEach(el => {
-    // Prevent hiding important sections like the hero
     if (el.classList.contains("hero-section")) {
       el.classList.add("visible");
       return;
     }
-
     const rect = el.getBoundingClientRect();
     const inView = rect.top < window.innerHeight - 100;
-
-    if (inView) {
-      el.classList.add('visible');
-    }
+    if (inView) el.classList.add('visible');
   });
 }
 
@@ -110,21 +104,17 @@ window.addEventListener('scroll', handleScrollAnimations);
 function initCustomCursor() {
   const cursor = document.getElementById('custom-cursor');
   if (!cursor) return;
-
-  // Disable on mobile
   if (window.innerWidth < 768) {
     cursor.style.display = "none";
     return;
   }
 
-  // Move cursor
   document.addEventListener('mousemove', (e) => {
     cursor.style.left = `${e.clientX - 15}px`;
     cursor.style.top = `${e.clientY - 15}px`;
     cursor.style.opacity = 1;
   });
 
-  // Hover expand on links & buttons
   const hoverables = document.querySelectorAll('a, button, .cta-button');
   hoverables.forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('active'));
@@ -138,32 +128,48 @@ function initCustomCursor() {
 window.addEventListener('scroll', () => {
   const header = document.getElementById('mainHeader');
   if (!header) return;
-
-  if (window.scrollY > 50) {
-    header.classList.add('shrink');
-  } else {
-    header.classList.remove('shrink');
-  }
+  header.classList.toggle('shrink', window.scrollY > 50);
 });
 
 // ------------------------------
-// HAMBURGER TOGGLE BEHAVIOR
+// HAMBURGER MENU CONTROLS
 // ------------------------------
-document.addEventListener('DOMContentLoaded', () => {
+function initHamburgerMenu() {
   const toggle = document.getElementById("hamburgerToggle");
   const menu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("menuOverlay");
+  const closeBtn = document.getElementById("menuCloseBtn");
 
-  if (toggle && menu) {
-    toggle.addEventListener("click", () => {
-      const isActive = menu.classList.contains("active");
+  function openMenu() {
+    menu.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+    setTimeout(() => {
+      menu.classList.add("active");
+      overlay.classList.add("visible");
 
-      if (isActive) {
-        menu.classList.remove("active");
-        setTimeout(() => menu.classList.add("hidden"), 400); // hide after animation
-      } else {
-        menu.classList.remove("hidden");
-        setTimeout(() => menu.classList.add("active"), 10); // allow DOM render first
-      }
-    });
+      // Reset li animation
+      const menuItems = menu.querySelectorAll("ul li");
+      menuItems.forEach((item) => {
+        item.style.animation = "none";
+        item.offsetHeight; // trigger reflow
+        item.style.animation = "";
+      });
+
+      // Typewriter signature
+      animateSignature();
+    }, 10);
   }
-});
+
+  function closeMenu() {
+    menu.classList.remove("active");
+    overlay.classList.remove("visible");
+    setTimeout(() => {
+      menu.classList.add("hidden");
+      overlay.classList.add("hidden");
+    }, 400);
+  }
+
+  if (toggle) toggle.addEventListener("click", openMenu);
+  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+  if (overlay) overlay.addEventListener("click", closeMenu);
+}

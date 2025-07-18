@@ -263,3 +263,47 @@ a:hover, button:hover, .cta-button:hover {
 .animated-ijoba:hover {
   animation-duration: 0.8s; /* breathe faster on hover */
 }
+
+/* 🌈 Shifting Background */
+.hero-gradient {
+  background: linear-gradient(-45deg, #22c55e, #f97316, #0ea5e9, #111827);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ✍️ Glowing Typewriter Text */
+.glow-text {
+  font-weight: bold;
+  color: #facc15;
+  text-shadow: 0 0 6px #facc15, 0 0 12px #fb923c;
+}
+
+/* 🔘 CTA Button Glowing + Morph Effect */
+.cta-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #facc15, #fb923c, #22c55e);
+  background-size: 200% 200%;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.6;
+  animation: pulse-bg 4s ease-in-out infinite;
+  transition: opacity 0.3s;
+}
+.cta-button:hover::before {
+  opacity: 1;
+}
+
+@keyframes pulse-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

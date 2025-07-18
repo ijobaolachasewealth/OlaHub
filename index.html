@@ -31,8 +31,8 @@
   <!-- ✨ Particle JS Layer -->
   <div id="tsparticles" class="absolute inset-0 z-0"></div>
 
-  <!-- 🌟 SVG Glow -->
-  <div class="absolute z-10 w-96 h-96 opacity-30 blur-3xl animate-pulse pointer-events-none">
+  <!-- 🌟 SVG Glow with Parallax -->
+  <div class="absolute z-10 w-96 h-96 opacity-30 blur-3xl animate-pulse pointer-events-none rellax" data-rellax-speed="-3">
     <svg viewBox="0 0 200 200" class="w-full h-full">
       <defs>
         <radialGradient id="glow" cx="50%" cy="50%" r="50%">
@@ -42,6 +42,16 @@
       </defs>
       <circle cx="100" cy="100" r="100" fill="url(#glow)" />
     </svg>
+  </div>
+
+  <!-- 💬 Floating Chase with Parallax -->
+  <div class="absolute text-[8rem] font-bold text-white opacity-5 pointer-events-none rellax" data-rellax-speed="2" style="top: 20%; left: 10%;">
+    CHASE
+  </div>
+
+  <!-- 💬 Floating IJOBA with Parallax -->
+  <div class="absolute text-[7rem] font-bold text-white opacity-5 pointer-events-none rellax" data-rellax-speed="4" style="bottom: 10%; right: 5%;">
+    IJOBA
   </div>
 
   <!-- 🚀 Hero Content -->
@@ -118,5 +128,12 @@ tsParticles.load("tsparticles", {
     once: true,
   });
 </script>
+
+<!-- Rellax Parallax Init -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+<script>
+  const rellax = new Rellax('.rellax');
+</script>
+
 </body>
 </html>

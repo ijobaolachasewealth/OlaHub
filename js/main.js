@@ -1,4 +1,4 @@
-// === OLAHUB JS v1.0 ===
+// === OLAHUB JS v1.1 ===
 // File: olahub/js/main.js
 
 // ------------------------------
@@ -74,6 +74,7 @@ window.addEventListener("load", () => {
 document.addEventListener("DOMContentLoaded", () => {
   typeHeroText();
   animateSignature();
+  initCustomCursor();
 });
 
 // ------------------------------
@@ -94,3 +95,31 @@ function handleScrollAnimations() {
 
 window.addEventListener('scroll', handleScrollAnimations);
 window.addEventListener('load', handleScrollAnimations);
+
+// ------------------------------
+// CUSTOM CURSOR INTERACTION
+// ------------------------------
+function initCustomCursor() {
+  const cursor = document.getElementById('custom-cursor');
+  if (!cursor) return;
+
+  // Disable on mobile
+  if (window.innerWidth < 768) {
+    cursor.style.display = "none";
+    return;
+  }
+
+  // Move cursor
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = `${e.clientX - 15}px`;
+    cursor.style.top = `${e.clientY - 15}px`;
+    cursor.style.opacity = 1;
+  });
+
+  // Hover expand on links & buttons
+  const hoverables = document.querySelectorAll('a, button, .cta-button');
+  hoverables.forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+  });
+}

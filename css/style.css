@@ -307,3 +307,23 @@ a:hover, button:hover, .cta-button:hover {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* 🌟 Cursor Base Styles */
+.custom-cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #facc15;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-out, opacity 0.3s ease;
+  background-color: rgba(250, 204, 21, 0.2);
+  backdrop-filter: blur(4px);
+  mix-blend-mode: difference;
+}
+.custom-cursor.active {
+  transform: scale(2);
+  background-color: rgba(250, 204, 21, 0.4);
+  opacity: 0.8;
+}

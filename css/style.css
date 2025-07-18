@@ -241,3 +241,25 @@ body {
   transform: scale(1.05);
 }
 
+/* -------------------------
+   MICRO-INTERACTIONS
+---------------------------- */
+a, button, .cta-button, .rolling-glow-logo {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+a:hover, button:hover, .cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.rolling-glow-logo:hover {
+  transform: scale(1.1) rotate(10deg);
+  filter: drop-shadow(0 0 25px var(--glow-color));
+}
+
+.animated-chase:hover,
+.animated-ijoba:hover {
+  animation-duration: 0.8s; /* breathe faster on hover */
+}

@@ -1,4 +1,4 @@
-// === OLAHUB JS v1.1 ===
+// === OLAHUB JS v1.2 ===
 // File: olahub/js/main.js
 
 // ------------------------------
@@ -66,13 +66,21 @@ window.addEventListener("load", () => {
       preloader.style.display = "none";
     }, 800);
   }
+
+  // Trigger scroll animations on load
+  handleScrollAnimations();
 });
 
 // ------------------------------
 // ON DOM LOAD
 // ------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  typeHeroText();
+  // Safe typewriter trigger
+  const typeTarget = document.getElementById("typewriter-text");
+  if (typeTarget) {
+    typeHeroText();
+  }
+
   animateSignature();
   initCustomCursor();
 });
@@ -94,7 +102,6 @@ function handleScrollAnimations() {
 }
 
 window.addEventListener('scroll', handleScrollAnimations);
-window.addEventListener('load', handleScrollAnimations);
 
 // ------------------------------
 // CUSTOM CURSOR INTERACTION

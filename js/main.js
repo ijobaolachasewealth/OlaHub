@@ -131,3 +131,17 @@ function initCustomCursor() {
     el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
   });
 }
+
+// ------------------------------
+// SHRINK HEADER ON SCROLL
+// ------------------------------
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('mainHeader');
+  if (!header) return;
+
+  if (window.scrollY > 50) {
+    header.classList.add('shrink');
+  } else {
+    header.classList.remove('shrink');
+  }
+});

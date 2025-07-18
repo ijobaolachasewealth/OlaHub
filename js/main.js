@@ -1,4 +1,4 @@
-// === OLAHUB JS v1.2 ===
+// === OLAHUB JS v1.1 ===
 // File: olahub/js/main.js
 
 // ------------------------------
@@ -67,7 +67,7 @@ window.addEventListener("load", () => {
     }, 800);
   }
 
-  // Trigger scroll animations on load
+  // Trigger scroll animations just once after everything loads
   handleScrollAnimations();
 });
 
@@ -75,12 +75,7 @@ window.addEventListener("load", () => {
 // ON DOM LOAD
 // ------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  // Safe typewriter trigger
-  const typeTarget = document.getElementById("typewriter-text");
-  if (typeTarget) {
-    typeHeroText();
-  }
-
+  typeHeroText();
   animateSignature();
   initCustomCursor();
 });
@@ -92,6 +87,12 @@ function handleScrollAnimations() {
   const elements = document.querySelectorAll('.scroll-fade-in');
 
   elements.forEach(el => {
+    // Prevent hiding important sections like the hero
+    if (el.classList.contains("hero-section")) {
+      el.classList.add("visible");
+      return;
+    }
+
     const rect = el.getBoundingClientRect();
     const inView = rect.top < window.innerHeight - 100;
 

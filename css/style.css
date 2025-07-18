@@ -1,4 +1,4 @@
-/* === OLAHUB CSS v1.2 === */
+/* === OLAHUB CSS v1.3 === */
 /* File: olahub/css/style.css */
 
 /* -------------------------
@@ -21,22 +21,41 @@ html, body {
 }
 
 :root {
-  /* Color Scheme */
+  /* Light Theme - Default */
   --main-color: hsl(153, 65%, 40%);
   --optional-color: hsl(32, 100%, 50%);
   --glow-color: #FFA500;
   --white-color: #ffffff;
   --black-color: #000000;
 
-  /* Typography */
   --body-font-family: 'Inter', sans-serif;
   --heading-font-family: 'Paytone One', sans-serif;
   --menu-font-family: 'Public Sans', sans-serif;
 
-  /* Layout & Styling */
   --font-size: 15px;
   --transition: all ease 0.5s;
   --border-radius: 4px;
+}
+
+/* -------------------------
+   DARK MODE OVERRIDE
+---------------------------- */
+[data-theme="dark"] {
+  --white-color: #111827;
+  --black-color: #ffffff;
+  --main-color: hsl(153, 80%, 30%);
+  --optional-color: hsl(32, 100%, 60%);
+  --glow-color: #ffd700;
+}
+
+/* -------------------------
+   ACCESSIBILITY SUPPORT
+---------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* -------------------------
@@ -48,6 +67,17 @@ body {
   color: var(--black-color);
   font-size: var(--font-size);
   line-height: 1.6;
+}
+
+/* -------------------------
+   FOCUS STYLES (Accessibility)
+---------------------------- */
+a:focus,
+button:focus,
+.cta-button:focus,
+.hamburger-icon:focus {
+  outline: 2px solid var(--optional-color);
+  outline-offset: 3px;
 }
 
 /* -------------------------
@@ -196,6 +226,41 @@ body {
   animation: glowText 2s ease-in-out infinite alternate;
 }
 
+.hamburger-icon {
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  z-index: 1500;
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: white;
+  box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 1400;
+}
+
+.hamburger-menu.active {
+  transform: translateX(0);
+}
+
+.hamburger-menu.hidden {
+  display: none;
+}
+
 /* -------------------------
    PRELOADER SCREEN
 ---------------------------- */
@@ -233,7 +298,7 @@ body {
 }
 
 /* -------------------------
-   MICRO-HOVER INTERACTIONS
+   MICRO-INTERACTIONS
 ---------------------------- */
 .cta-button:hover,
 .hamburger-menu ul li:hover,
@@ -246,29 +311,17 @@ body {
 .animated-ijoba:hover {
   text-shadow: 0 0 25px var(--glow-color), 0 0 35px var(--glow-color);
   transform: scale(1.05);
+  animation-duration: 0.8s;
 }
 
-/* -------------------------
-   MICRO-INTERACTIONS
----------------------------- */
 a, button, .cta-button, .rolling-glow-logo {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
-a:hover, button:hover, .cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
 .rolling-glow-logo:hover {
   transform: scale(1.1) rotate(10deg);
   filter: drop-shadow(0 0 25px var(--glow-color));
-}
-
-.animated-chase:hover,
-.animated-ijoba:hover {
-  animation-duration: 0.8s;
 }
 
 /* 🌈 Shifting Background */
@@ -316,7 +369,7 @@ a:hover, button:hover, .cta-button:hover {
   100% { background-position: 0% 50%; }
 }
 
-/* 🌟 Cursor Base Styles */
+/* 🌟 Custom Cursor */
 .custom-cursor {
   position: fixed;
   width: 30px;
@@ -338,7 +391,6 @@ a:hover, button:hover, .cta-button:hover {
   opacity: 0.8;
 }
 
-/* ✨ Cursor Glow Effect */
 .custom-cursor::before {
   content: '';
   position: absolute;
@@ -354,26 +406,15 @@ a:hover, button:hover, .cta-button:hover {
 }
 
 @keyframes cursorPulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.5);
-    opacity: 0.3;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.3; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
 /* ==========================
    📱 MOBILE RESPONSIVENESS
 ============================= */
 @media (max-width: 768px) {
-
-  /* Hero Section Fixes */
   .hero-section {
     padding: 4rem 1.5rem;
     text-align: center;
@@ -394,12 +435,10 @@ a:hover, button:hover, .cta-button:hover {
     font-size: 1rem;
   }
 
-  /* Floating Words: CHASE & IJOBA */
   .hero-section .rellax {
-    display: none; /* Disable parallax items on mobile */
+    display: none;
   }
 
-  /* Sticky Header Adjustments */
   .sticky-header {
     flex-direction: column;
     align-items: flex-start;
@@ -413,29 +452,24 @@ a:hover, button:hover, .cta-button:hover {
     padding-top: 0.5rem;
   }
 
-  /* Hamburger Menu Spacing */
   .hamburger-menu ul li {
     padding: 1rem 0;
   }
 
-  /* Logo in Preloader */
   .rolling-glow-logo {
     width: 60px;
     height: 60px;
   }
 
-  /* Disable custom cursor */
   .custom-cursor {
     display: none !important;
   }
 
-  /* Signature Scaling */
   .menu-footer-signature {
     font-size: 12px;
     padding-bottom: 1rem;
   }
 
-  /* Scroll fade-ins smoother on small screens */
   .scroll-fade-in {
     opacity: 1 !important;
     transform: translateY(0) !important;

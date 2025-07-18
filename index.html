@@ -6,32 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OLAHUB - Your Gateway to Digital Access</title>
 
-  <!-- Link Styles -->
+  <!-- ✅ Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <!-- ✅ Styles -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Google Fonts -->
+  <!-- ✅ Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter&family=Paytone+One&family=Public+Sans&family=Roboto&display=swap" rel="stylesheet">
 
-  <!-- AOS Animation Library -->
+  <!-- ✅ AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
 
-<!-- 1. Preloader with Glowing Animated Logo -->
+<!-- 1. ✅ Preloader with Real Logo -->
 <div id="preloader">
-  <img src="https://via.placeholder.com/100x100.png?text=OLAHUB" alt="OlaHub Logo" class="rolling-glow-logo">
+  <img src="assets/images/logo-loading.png" alt="OlaHub Logo" class="rolling-glow-logo">
 </div>
 
-<!-- 2. Hero Section with Typewriter Header -->
-<header class="hero-section scroll-fade-in visible relative overflow-hidden min-h-screen flex items-center justify-center text-white z-10 px-6">
+<!-- 2. Hero Section -->
+<header class="hero-section relative overflow-hidden min-h-screen flex items-center justify-center text-white z-10 px-6">
 
-  <!-- 🌈 Animated Gradient Background -->
+  <!-- 🌈 Gradient Background -->
   <div class="absolute inset-0 z-0 hero-gradient"></div>
 
-  <!-- ✨ Particle JS Layer -->
+  <!-- ✨ Particles -->
   <div id="tsparticles" class="absolute inset-0 z-0"></div>
 
-  <!-- 🌟 SVG Glow with Parallax -->
+  <!-- 🌟 SVG Glow -->
   <div class="absolute z-10 w-96 h-96 opacity-30 blur-3xl animate-pulse pointer-events-none rellax" data-rellax-speed="-3">
     <svg viewBox="0 0 200 200" class="w-full h-full">
       <defs>
@@ -44,12 +47,12 @@
     </svg>
   </div>
 
-  <!-- 💬 Floating Chase with Parallax -->
+  <!-- 💬 Floating Chase -->
   <div class="absolute text-[8rem] font-bold text-white opacity-5 pointer-events-none rellax" data-rellax-speed="2" style="top: 20%; left: 10%;">
     CHASE
   </div>
 
-  <!-- 💬 Floating IJOBA with Parallax -->
+  <!-- 💬 Floating IJOBA -->
   <div class="absolute text-[7rem] font-bold text-white opacity-5 pointer-events-none rellax" data-rellax-speed="4" style="bottom: 10%; right: 5%;">
     IJOBA
   </div>
@@ -65,12 +68,12 @@
   </div>
 </header>
 
-<!-- 3. Scroll-Animated Sections -->
-<section class="services scroll-fade-in" data-aos="fade-up">
+<!-- 3. Scroll Sections -->
+<section id="services" class="services scroll-fade-in" data-aos="fade-up">
   <h2 class="animated-chase" data-aos="zoom-in" data-aos-delay="100">Explore Our Services</h2>
 </section>
 
-<section class="testimonials scroll-fade-in" data-aos="fade-up">
+<section id="testimonials" class="testimonials scroll-fade-in" data-aos="fade-up">
   <h2 class="animated-ijoba" data-aos="zoom-in" data-aos-delay="100">What Our Clients Say</h2>
 </section>
 
@@ -84,7 +87,7 @@
   </ul>
 </nav>
 
-<!-- 5. Hamburger Menu with Animated Signature -->
+<!-- 5. Hamburger Menu with Signature -->
 <div class="hamburger-menu">
   <ul>
     <li>Dashboard</li>
@@ -99,7 +102,7 @@
 <!-- Scripts -->
 <script src="js/main.js"></script>
 
-<!-- Particle JS -->
+<!-- Particles -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
 <script>
 tsParticles.load("tsparticles", {
@@ -120,7 +123,7 @@ tsParticles.load("tsparticles", {
 });
 </script>
 
-<!-- AOS Animation Init -->
+<!-- AOS Init -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({
@@ -129,13 +132,13 @@ tsParticles.load("tsparticles", {
   });
 </script>
 
-<!-- Rellax Parallax Init -->
+<!-- Rellax Init -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
 <script>
   const rellax = new Rellax('.rellax');
 </script>
 
-  <!-- 🌟 Custom Cursor Elements -->
+<!-- Custom Cursor -->
 <div id="custom-cursor" class="custom-cursor hidden lg:block"></div>
 
 </body>

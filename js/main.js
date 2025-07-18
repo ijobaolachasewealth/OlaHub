@@ -1,4 +1,4 @@
-// === OLAHUB JS v1.2 ===
+// === OLAHUB JS v1.3 ===
 // File: olahub/js/main.js
 
 // ------------------------------
@@ -147,29 +147,7 @@ function initHamburgerMenu() {
       menu.classList.add("active");
       overlay.classList.add("visible");
 
-      // Reset li animation
+      // Animate <li> elements with staggered entry
       const menuItems = menu.querySelectorAll("ul li");
-      menuItems.forEach((item) => {
-        item.style.animation = "none";
-        item.offsetHeight; // trigger reflow
-        item.style.animation = "";
-      });
-
-      // Typewriter signature
-      animateSignature();
-    }, 10);
-  }
-
-  function closeMenu() {
-    menu.classList.remove("active");
-    overlay.classList.remove("visible");
-    setTimeout(() => {
-      menu.classList.add("hidden");
-      overlay.classList.add("hidden");
-    }, 400);
-  }
-
-  if (toggle) toggle.addEventListener("click", openMenu);
-  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-  if (overlay) overlay.addEventListener("click", closeMenu);
-}
+      menuItems.forEach((item, index) => {
+        item.sty

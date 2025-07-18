@@ -15,6 +15,11 @@ html, body {
   will-change: transform, opacity;
 }
 
+.hero-section {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
 :root {
   /* Color Scheme */
   --main-color: hsl(153, 65%, 40%);

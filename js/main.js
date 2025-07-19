@@ -154,3 +154,8 @@ function initHamburgerMenu() {
     body.classList.toggle("no-scroll");
 
     if (menu.
+
+  menuItems.forEach((item, index) => {
+  item.style.animationDelay = `${index * 0.1}s`;
+  item.classList.add("slide-in");
+});

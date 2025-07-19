@@ -1,5 +1,8 @@
-// === OLAHUB JS v1.4 (Fixed) ===
+// === OLAHUB JS v1.5 ===
 
+// ------------------------------
+// HERO TYPEWRITER TEXT
+// ------------------------------
 const phrases = [
   "Social Media Accounts",
   "Virtual Numbers and OTP",
@@ -13,7 +16,7 @@ let currentChar = 0;
 let isDeleting = false;
 
 function typeHeroText() {
-  const typeTarget = document.getElementById("typewriter"); // ✅ Corrected ID
+  const typeTarget = document.getElementById("typewriter");
   if (!typeTarget) return;
 
   const text = phrases[currentPhrase];
@@ -34,29 +37,35 @@ function typeHeroText() {
 }
 
 // ------------------------------
-// SIGNATURE TYPEWRITER (Menu)
+// GLOWING SIGNATURE TYPEWRITER
 // ------------------------------
-function animateSignature() {
-  const menuSignature = document.querySelector(".menu-footer-signature");
-  if (!menuSignature) return;
+let signatureAnimated = false;
+function animateSignatureOnce() {
+  if (signatureAnimated) return;
 
-  const signatureText = "|👤| © 𝗜𝗷❂𝗯𝗮 ☯︎𝗹𝗮 𝗖𝗵𝗮𝘀𝗲 𝗪𝗲𝗮𝗹𝘁𝗵™";
-  menuSignature.innerHTML = "";
-  let i = 0;
+  const sig = document.querySelector(".menu-signature");
+  if (!sig) return;
 
-  function typeChar() {
-    if (i < signatureText.length) {
-      menuSignature.innerHTML += signatureText.charAt(i);
-      i++;
-      setTimeout(typeChar, 70);
+  const text = sig.getAttribute("data-signature");
+  let index = 0;
+  sig.innerHTML = "";
+
+  const interval = setInterval(() => {
+    if (index < text.length) {
+      const span = document.createElement("span");
+      span.textContent = text[index];
+      span.classList.add("glow-char");
+      sig.appendChild(span);
+      index++;
+    } else {
+      clearInterval(interval);
+      signatureAnimated = true;
     }
-  }
-
-  typeChar();
+  }, 80);
 }
 
 // ------------------------------
-// PRELOADER FADE OUT ON LOAD
+// PAGE PRELOADER FADE OUT
 // ------------------------------
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
@@ -71,17 +80,16 @@ window.addEventListener("load", () => {
 });
 
 // ------------------------------
-// DOM READY INITIALIZATION
+// DOM INITIALIZATION
 // ------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   typeHeroText();
-  animateSignature();
   initCustomCursor();
   initHamburgerMenu();
 });
 
 // ------------------------------
-// SCROLL ANIMATION TRIGGER
+// SCROLL-TRIGGERED FADE-INS
 // ------------------------------
 function handleScrollAnimations() {
   const elements = document.querySelectorAll('.scroll-fade-in');
@@ -95,14 +103,13 @@ function handleScrollAnimations() {
     if (inView) el.classList.add('visible');
   });
 }
-
 window.addEventListener('scroll', handleScrollAnimations);
 
 // ------------------------------
-// CUSTOM CURSOR INTERACTION
+// CUSTOM CURSOR TRACKING
 // ------------------------------
 function initCustomCursor() {
-  const cursor = document.getElementById('customCursor'); // ✅ matches id in your HTML
+  const cursor = document.getElementById('customCursor');
   if (!cursor) return;
   if (window.innerWidth < 768) {
     cursor.style.display = "none";
@@ -123,10 +130,10 @@ function initCustomCursor() {
 }
 
 // ------------------------------
-// SHRINK HEADER ON SCROLL
+// HEADER SHRINK ON SCROLL
 // ------------------------------
 window.addEventListener('scroll', () => {
-  const header = document.getElementById('mainHeader'); // Not in your HTML yet
+  const header = document.getElementById('mainHeader');
   if (!header) return;
   header.classList.toggle('shrink', window.scrollY > 50);
 });
@@ -135,38 +142,15 @@ window.addEventListener('scroll', () => {
 // HAMBURGER MENU CONTROLS
 // ------------------------------
 function initHamburgerMenu() {
-  const toggle = document.getElementById("hamburgerBtn");
-  const menu = document.getElementById("hamburgerMenu");
-  const overlay = document.getElementById("menuOverlay");
-  const closeBtn = document.getElementById("closeMenu");
+  const hamburger = document.querySelector(".hamburger");
+  const menu = document.querySelector(".mobile-menu");
+  const body = document.body;
 
-  if (!toggle || !menu || !overlay || !closeBtn) return;
+  if (!hamburger || !menu) return;
 
-  function openMenu() {
-    menu.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-    setTimeout(() => {
-      menu.classList.add("active");
-      overlay.classList.add("visible");
+  hamburger.addEventListener("click", () => {
+    menu.classList.toggle("menu-open");
+    hamburger.classList.toggle("is-active");
+    body.classList.toggle("no-scroll");
 
-      const menuItems = menu.querySelectorAll("ul li");
-      menuItems.forEach((item, index) => {
-        item.style.animationDelay = `${index * 0.1}s`;
-        item.classList.add("slide-in");
-      });
-    }, 10);
-  }
-
-  function closeMenu() {
-    menu.classList.remove("active");
-    overlay.classList.remove("visible");
-    setTimeout(() => {
-      menu.classList.add("hidden");
-      overlay.classList.add("hidden");
-    }, 300);
-  }
-
-  toggle.addEventListener("click", openMenu);
-  closeBtn.addEventListener("click", closeMenu);
-  overlay.addEventListener("click", closeMenu);
-}
+    if (menu.

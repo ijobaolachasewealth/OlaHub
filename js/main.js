@@ -1,4 +1,4 @@
-// === OLAHUB JS v1.3 (Fixed) ===
+// === OLAHUB JS v1.4 (Fixed) ===
 
 const phrases = [
   "Social Media Accounts",
@@ -13,8 +13,8 @@ let currentChar = 0;
 let isDeleting = false;
 
 function typeHeroText() {
-  const typeTarget = document.getElementById("typewriter-text");
-  if (!typeTarget) return; // 💥 Fix: If span is missing, exit safely
+  const typeTarget = document.getElementById("typewriter"); // ✅ Corrected ID
+  if (!typeTarget) return;
 
   const text = phrases[currentPhrase];
   const visible = text.substring(0, currentChar);
@@ -37,7 +37,7 @@ function typeHeroText() {
 // SIGNATURE TYPEWRITER (Menu)
 // ------------------------------
 function animateSignature() {
-  const menuSignature = document.getElementById("menuSignature");
+  const menuSignature = document.querySelector(".menu-footer-signature");
   if (!menuSignature) return;
 
   const signatureText = "|👤| © 𝗜𝗷❂𝗯𝗮 ☯︎𝗹𝗮 𝗖𝗵𝗮𝘀𝗲 𝗪𝗲𝗮𝗹𝘁𝗵™";
@@ -102,7 +102,7 @@ window.addEventListener('scroll', handleScrollAnimations);
 // CUSTOM CURSOR INTERACTION
 // ------------------------------
 function initCustomCursor() {
-  const cursor = document.getElementById('custom-cursor');
+  const cursor = document.getElementById('customCursor'); // ✅ matches id in your HTML
   if (!cursor) return;
   if (window.innerWidth < 768) {
     cursor.style.display = "none";
@@ -126,7 +126,7 @@ function initCustomCursor() {
 // SHRINK HEADER ON SCROLL
 // ------------------------------
 window.addEventListener('scroll', () => {
-  const header = document.getElementById('mainHeader');
+  const header = document.getElementById('mainHeader'); // Not in your HTML yet
   if (!header) return;
   header.classList.toggle('shrink', window.scrollY > 50);
 });
@@ -135,10 +135,10 @@ window.addEventListener('scroll', () => {
 // HAMBURGER MENU CONTROLS
 // ------------------------------
 function initHamburgerMenu() {
-  const toggle = document.getElementById("hamburgerToggle");
-  const menu = document.getElementById("mobileMenu");
+  const toggle = document.getElementById("hamburgerBtn");
+  const menu = document.getElementById("hamburgerMenu");
   const overlay = document.getElementById("menuOverlay");
-  const closeBtn = document.getElementById("menuCloseBtn");
+  const closeBtn = document.getElementById("closeMenu");
 
   if (!toggle || !menu || !overlay || !closeBtn) return;
 

@@ -1,5 +1,5 @@
 // === OLAHUB JS v1.3 ===
-// File: olahub/js/main.js
+// File: js/main.js
 
 // ------------------------------
 // TYPEWRITER HERO ANIMATION
@@ -143,6 +143,7 @@ function initHamburgerMenu() {
   function openMenu() {
     menu.classList.remove("hidden");
     overlay.classList.remove("hidden");
+
     setTimeout(() => {
       menu.classList.add("active");
       overlay.classList.add("visible");
@@ -150,4 +151,26 @@ function initHamburgerMenu() {
       // Animate <li> elements with staggered entry
       const menuItems = menu.querySelectorAll("ul li");
       menuItems.forEach((item, index) => {
-        item.sty
+        item.style.animationDelay = `${index * 100}ms`;
+        item.classList.add('menu-item-animate');
+      });
+    }, 10);
+  }
+
+  function closeMenu() {
+    menu.classList.remove("active");
+    overlay.classList.remove("visible");
+    setTimeout(() => {
+      menu.classList.add("hidden");
+      overlay.classList.add("hidden");
+    }, 300);
+  }
+
+  if (toggle) toggle.addEventListener("click", () => {
+    openMenu();
+    animateSignature();
+  });
+
+  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+  if (overlay) overlay.addEventListener("click", closeMenu);
+}

@@ -1,9 +1,5 @@
-// === OLAHUB JS v1.3 ===
-// File: js/main.js
+// === OLAHUB JS v1.3 (Fixed) ===
 
-// ------------------------------
-// TYPEWRITER HERO ANIMATION
-// ------------------------------
 const phrases = [
   "Social Media Accounts",
   "Virtual Numbers and OTP",
@@ -16,9 +12,10 @@ let currentPhrase = 0;
 let currentChar = 0;
 let isDeleting = false;
 
-const typeTarget = document.getElementById("typewriter-text");
-
 function typeHeroText() {
+  const typeTarget = document.getElementById("typewriter-text");
+  if (!typeTarget) return; // 💥 Fix: If span is missing, exit safely
+
   const text = phrases[currentPhrase];
   const visible = text.substring(0, currentChar);
   typeTarget.innerHTML = visible;
@@ -41,6 +38,8 @@ function typeHeroText() {
 // ------------------------------
 function animateSignature() {
   const menuSignature = document.getElementById("menuSignature");
+  if (!menuSignature) return;
+
   const signatureText = "|👤| © 𝗜𝗷❂𝗯𝗮 ☯︎𝗹𝗮 𝗖𝗵𝗮𝘀𝗲 𝗪𝗲𝗮𝗹𝘁𝗵™";
   menuSignature.innerHTML = "";
   let i = 0;
@@ -76,6 +75,7 @@ window.addEventListener("load", () => {
 // ------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   typeHeroText();
+  animateSignature();
   initCustomCursor();
   initHamburgerMenu();
 });
@@ -140,19 +140,19 @@ function initHamburgerMenu() {
   const overlay = document.getElementById("menuOverlay");
   const closeBtn = document.getElementById("menuCloseBtn");
 
+  if (!toggle || !menu || !overlay || !closeBtn) return;
+
   function openMenu() {
     menu.classList.remove("hidden");
     overlay.classList.remove("hidden");
-
     setTimeout(() => {
       menu.classList.add("active");
       overlay.classList.add("visible");
 
-      // Animate <li> elements with staggered entry
       const menuItems = menu.querySelectorAll("ul li");
       menuItems.forEach((item, index) => {
-        item.style.animationDelay = `${index * 100}ms`;
-        item.classList.add('menu-item-animate');
+        item.style.animationDelay = `${index * 0.1}s`;
+        item.classList.add("slide-in");
       });
     }, 10);
   }
@@ -166,11 +166,7 @@ function initHamburgerMenu() {
     }, 300);
   }
 
-  if (toggle) toggle.addEventListener("click", () => {
-    openMenu();
-    animateSignature();
-  });
-
-  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-  if (overlay) overlay.addEventListener("click", closeMenu);
+  toggle.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
 }

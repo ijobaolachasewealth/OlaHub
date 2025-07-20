@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" data-theme="light">
   <head>
+    <base href="/OlaHub/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -102,56 +103,55 @@
     <!-- ✅ Main Script (Update as Needed) -->
     <script src="js/main.js"></script>
 
-    <script>
-        window.addEventListener("load", () => {
-          const preloader = document.getElementById("preloader");
-          if (preloader) {
-            preloader.classList.add("fade-out");
-            setTimeout(() => {
-              preloader.style.display = "none";
-            }, 1000); // wait for CSS transition
-          }
-        });
-
-        <!-- 🔹 Marketplace Section -->
-      <section class="marketplace">
-        <h2 class="section-title">Latest Products</h2>
-        <div class="product-grid">
-
-          <!-- Product Card -->
-          <div class="product-card">
-            <img src="assets/sample-product.jpg" alt="Product Image">
-            <h3 class="product-title">Instagram Account (Real Followers)</h3>
-            <p class="product-price">₦5,000</p>
-            <button class="buy-button">Buy Now</button>
-          </div>
-
-          <!-- 🔹 Admin Upload Section -->
-      <section class="product-upload scroll-fade-in" id="adminUpload" style="display: none;">
-        <h2 class="section-title">Upload New Product</h2>
-        <form class="upload-form">
-        <input type="text" placeholder="Product Title" required>
-        <input type="number" placeholder="Price (₦)" required>
-        <input type="file" accept="image/*" required>
-        <textarea placeholder="Product Description" required></textarea>
-
-        <!-- 🔹 Hidden Commission Value (Platform Cut: ₦500 for now) -->
-        <input type="hidden" name="platformCut" value="500">
-
-        <button type="submit">Upload Product</button>
-      </form>
-      </section>
-
-          <!-- Another Product Card -->
-          <div class="product-card">
-            <img src="assets/sample-product.jpg" alt="Product Image">
-            <h3 class="product-title">VPN Login (1 Month)</h3>
-            <p class="product-price">₦2,500</p>
-            <button class="buy-button">Buy Now</button>
-          </div>
-
+    <!-- 🔹 Marketplace Section -->
+    <section class="marketplace">
+      <h2 class="section-title">Latest Products</h2>
+      <div class="product-grid">
+        <!-- Product Card -->
+        <div class="product-card">
+          <img src="assets/sample-product.jpg" alt="Product Image" />
+          <h3 class="product-title">Instagram Account (Real Followers)</h3>
+          <p class="product-price">₦5,000</p>
+          <button class="buy-button">Buy Now</button>
         </div>
-      </section>
+
+        <!-- 🔹 Admin Upload Section -->
+        <section class="product-upload scroll-fade-in" id="adminUpload" style="display: none">
+          <h2 class="section-title">Upload New Product</h2>
+          <form class="upload-form">
+            <input type="text" placeholder="Product Title" required />
+            <input type="number" placeholder="Price (₦)" required />
+            <input type="file" accept="image/*" required />
+            <textarea placeholder="Product Description" required></textarea>
+
+            <!-- 🔹 Hidden Commission Value (Platform Cut: ₦500 for now) -->
+            <input type="hidden" name="platformCut" value="500" />
+
+            <button type="submit">Upload Product</button>
+          </form>
+        </section>
+
+        <!-- Another Product Card -->
+        <div class="product-card">
+          <img src="assets/sample-product.jpg" alt="Product Image" />
+          <h3 class="product-title">VPN Login (1 Month)</h3>
+          <p class="product-price">₦2,500</p>
+          <button class="buy-button">Buy Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Valid script only -->
+    <script>
+      window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+          preloader.classList.add('fade-out');
+          setTimeout(() => {
+            preloader.style.display = 'none';
+          }, 1000);
+        }
+      });
     </script>
   </body>
 </html>

@@ -18,6 +18,7 @@ let isDeleting = false;
 
 function type() {
   const currentText = phrases[currentPhrase];
+
   if (isDeleting) {
     currentChar--;
   } else {
@@ -32,14 +33,15 @@ function type() {
   let speed = isDeleting ? 50 : 100;
 
   if (!isDeleting && currentChar === currentText.length) {
-    speed = 2000;
+    speed = 2000; // Wait 2s before deleting
     isDeleting = true;
   } else if (isDeleting && currentChar === 0) {
     isDeleting = false;
     currentPhrase = (currentPhrase + 1) % phrases.length;
-    speed = 500;
+    speed = 500; // Pause before typing next
   }
 
+  // ⛔️ THIS IS THE CRUCIAL LINE — it keeps the loop going:
   setTimeout(type, speed);
 }
 
@@ -256,3 +258,15 @@ function addProductCard(title, price, imageSrc = 'assets/sample-product.jpg') {
 
   grid.prepend(card);
 }
+
+// ✅ DOM INIT
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM loaded ✅');
+  if (typewriterTarget) {
+    type();
+  } else {
+    console.warn('⚠️ #typewriter-text not found in DOM');
+  }
+  initCustomCursor();
+  initHamburgerMenu();
+});

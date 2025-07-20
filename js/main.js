@@ -77,16 +77,34 @@ function animateSignatureOnce() {
 // PAGE PRELOADER FADE OUT
 // ------------------------------
 window.addEventListener('load', () => {
+  console.log('🌐 Page loaded: attempting to fade out preloader');
   const preloader = document.getElementById('preloader');
   if (preloader) {
     preloader.classList.add('fade-out');
     setTimeout(() => {
       preloader.style.display = 'none';
+      console.log('✅ Preloader fully hidden');
     }, 1000);
   }
 
-  handleScrollAnimations();
+  handleScrollAnimations(); // 👈 Put this back in
 });
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  background-color: #0a0d26; /* or whatever your hero bg is */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease;
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
 
 // ------------------------------
 // DOM INITIALIZATION

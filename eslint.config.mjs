@@ -3,6 +3,7 @@ import globals from 'globals';
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
+  js.configs.recommended, // ✅ This must come first, as an object
   {
     files: ['**/*.{js,mjs,cjs}'],
     languageOptions: {
@@ -12,8 +13,7 @@ export default defineConfig([
       }
     },
     rules: {
-      // You can override rules here
-    },
-    extends: ['eslint:recommended', 'prettier', js.configs.recommended]
+      // ✅ Optional overrides
+    }
   }
 ]);

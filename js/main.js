@@ -4,6 +4,7 @@
 // HERO TYPEWRITER TEXT
 // ------------------------------
 // Typewriter animation
+console.log('✅ main.js loaded');
 const typewriterTarget = document.getElementById('typewriter-text');
 
 const phrases = [

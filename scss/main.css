@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Paytone+One&family=Public+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Paytone+One&family=Public+Sans&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -8,13 +8,13 @@
 :root {
   --main-color: hsl(153, 65%, 40%);
   --optional-color: hsl(32, 100%, 50%);
-  --glow-color: #FFA500;
+  --glow-color: #ffa500;
   --white-color: #ffffff;
   --black-color: #000000;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
   line-height: 1.6;
 }
@@ -59,7 +59,7 @@ body {
 }
 
 .menu-signature {
-  font-family: "Orbitron", sans-serif;
+  font-family: 'Orbitron', sans-serif;
   text-shadow: 0 0 6px #ff9900;
 }
 
@@ -91,4 +91,4 @@ a:focus-visible {
   to {
     opacity: 1;
   }
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */

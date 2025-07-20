@@ -1,153 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>OLAHUB - Your Gateway to Digital Power</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>OLAHUB - Your Gateway to Digital Power</title>
 
-  <!-- ✅ CSS and Fonts -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Paytone+One&family=Public+Sans&display=swap" rel="stylesheet" />
+    <!-- ✅ CSS and Fonts -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Paytone+One&family=Public+Sans&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- ✅ Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
-</head>
-<body>
-
-  <!-- 🔹 Navbar -->
-<nav class="navbar">
-  <div class="logo">
-    <span class="glow chase-logo">OLA<span class="ijoba-text">HUB</span></span>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Marketplace</a></li>
-    <li><a href="#">Tools</a></li>
-    <li><a href="#">Blog</a></li>
-    <li><a href="#">Login</a></li>
-  </ul>
-</nav>
-
-<!-- 🔹 Hero Section -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Your Gateway to <span id="typewriter-text"></span></h1>
-    <p>Boost your social media presence with premium tools, accounts, and digital power.</p>
-    <a href="#" class="hero-btn">Get Started</a>
-  </div>
-</section>
-
-  <!-- ✅ Preloader -->
-  <div id="preloader">
-    <img src="assets/images/logo-loading.png" alt="Loading..." class="rolling-glow-logo" />
-  </div>
-
-  <!-- ✅ Sticky Header -->
-  <header class="sticky-header">
-    <div class="logo">
-      <img src="assets/images/logo.png" alt="OLAHUB Logo" class="rolling-glow-logo" />
-    </div>
-    <nav>
+    <!-- ✅ Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
+  </head>
+  <body>
+    <!-- 🔹 Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <span class="glow chase-logo">OLA<span class="ijoba-text">HUB</span></span>
+      </div>
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#market">Marketplace</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">Marketplace</a></li>
+        <li><a href="#">Tools</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Login</a></li>
       </ul>
     </nav>
-  </header>
 
-  <!-- ✅ Hamburger Toggle -->
-<div class="hamburger-icon" id="hamburgerBtn">☰</div>
+    <!-- 🔹 Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Your Gateway to <span id="typewriter-text"></span></h1>
+        <p>Boost your social media presence with premium tools, accounts, and digital power.</p>
+        <a href="#" class="hero-btn">Get Started</a>
+      </div>
+    </section>
 
-<!-- ✅ Hamburger Menu -->
-<div class="menu-overlay hidden" id="menuOverlay"></div>
-<div class="hamburger-menu hidden" id="hamburgerMenu">
-  <div class="menu-close-button" id="closeMenu">×</div>
-  
-  <ul>
-    <li style="--i:1">Dashboard</li>
-    <li style="--i:2">My Orders</li>
-    <li style="--i:3">Top-up Wallet</li>
-    <li style="--i:4">Settings</li>
-    <li style="--i:5">Logout</li>
-  </ul>
-
-  <!-- 🔹 Footer Signature INSIDE the hamburger menu -->
-  <div class="menu-signature-wrapper">
-    <p class="menu-signature" data-signature="|👤| © 𝗜𝗝❂𝗕𝗔 ☯︎𝗟𝗔 𝗖𝗛𝗔𝗦𝗘 𝗪𝗘𝗔𝗟𝗧𝗛™"></p>
-  </div>
-</div>
-
-  <!-- ✅ Hero Section -->
-  <section class="hero-section hero-gradient scroll-fade-in">
-    <div>
-      <h1>Your Gateway to <span class="glow-text" id="typewriter"></span></h1>
-      <p class="hero-subtitle">Elevating Digital Services with <span class="animated-ijoba">Ijoba</span> Power</p>
-      <a href="#get-started" class="cta-button">Get Started</a>
-    </div>
-  </section>
-
-  <!-- ✅ Custom Cursor -->
-  <div class="custom-cursor" id="customCursor"></div>
-
-  <!-- ✅ Main Script (Update as Needed) -->
-  <script src="js/main.js"></script>
-
-  <script>
-  window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    if (preloader) {
-      preloader.classList.add("fade-out");
-      setTimeout(() => {
-        preloader.style.display = "none";
-      }, 1000); // wait for CSS transition
-    }
-  });
-
-  <!-- 🔹 Marketplace Section -->
-<section class="marketplace">
-  <h2 class="section-title">Latest Products</h2>
-  <div class="product-grid">
-    
-    <!-- Product Card -->
-    <div class="product-card">
-      <img src="assets/sample-product.jpg" alt="Product Image">
-      <h3 class="product-title">Instagram Account (Real Followers)</h3>
-      <p class="product-price">₦5,000</p>
-      <button class="buy-button">Buy Now</button>
+    <!-- ✅ Preloader -->
+    <div id="preloader">
+      <img src="assets/images/logo-loading.png" alt="Loading..." class="rolling-glow-logo" />
     </div>
 
-    <!-- 🔹 Admin Upload Section -->
-<section class="product-upload scroll-fade-in" id="adminUpload" style="display: none;">
-  <h2 class="section-title">Upload New Product</h2>
-  <form class="upload-form">
-  <input type="text" placeholder="Product Title" required>
-  <input type="number" placeholder="Price (₦)" required>
-  <input type="file" accept="image/*" required>
-  <textarea placeholder="Product Description" required></textarea>
-  
-  <!-- 🔹 Hidden Commission Value (Platform Cut: ₦500 for now) -->
-  <input type="hidden" name="platformCut" value="500">
+    <!-- ✅ Sticky Header -->
+    <header class="sticky-header">
+      <div class="logo">
+        <img src="assets/images/logo.png" alt="OLAHUB Logo" class="rolling-glow-logo" />
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#market">Marketplace</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <button type="submit">Upload Product</button>
-</form>
-</section>
+    <!-- ✅ Hamburger Toggle -->
+    <div class="hamburger-icon" id="hamburgerBtn">☰</div>
 
-    <!-- Another Product Card -->
-    <div class="product-card">
-      <img src="assets/sample-product.jpg" alt="Product Image">
-      <h3 class="product-title">VPN Login (1 Month)</h3>
-      <p class="product-price">₦2,500</p>
-      <button class="buy-button">Buy Now</button>
+    <!-- ✅ Hamburger Menu -->
+    <div class="menu-overlay hidden" id="menuOverlay"></div>
+    <div class="hamburger-menu hidden" id="hamburgerMenu">
+      <div class="menu-close-button" id="closeMenu">×</div>
+
+      <ul>
+        <li style="--i: 1">Dashboard</li>
+        <li style="--i: 2">My Orders</li>
+        <li style="--i: 3">Top-up Wallet</li>
+        <li style="--i: 4">Settings</li>
+        <li style="--i: 5">Logout</li>
+      </ul>
+
+      <!-- 🔹 Footer Signature INSIDE the hamburger menu -->
+      <div class="menu-signature-wrapper">
+        <p class="menu-signature" data-signature="|👤| © 𝗜𝗝❂𝗕𝗔 ☯︎𝗟𝗔 𝗖𝗛𝗔𝗦𝗘 𝗪𝗘𝗔𝗟𝗧𝗛™"></p>
+      </div>
     </div>
 
-  </div>
-</section>
-</script>
-</body>
+    <!-- ✅ Hero Section -->
+    <section class="hero-section hero-gradient scroll-fade-in">
+      <div>
+        <h1>Your Gateway to <span class="glow-text" id="typewriter"></span></h1>
+        <p class="hero-subtitle">
+          Elevating Digital Services with <span class="animated-ijoba">Ijoba</span> Power
+        </p>
+        <a href="#get-started" class="cta-button">Get Started</a>
+      </div>
+    </section>
+
+    <!-- ✅ Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- ✅ Main Script (Update as Needed) -->
+    <script src="js/main.js"></script>
+
+    <script>
+        window.addEventListener("load", () => {
+          const preloader = document.getElementById("preloader");
+          if (preloader) {
+            preloader.classList.add("fade-out");
+            setTimeout(() => {
+              preloader.style.display = "none";
+            }, 1000); // wait for CSS transition
+          }
+        });
+
+        <!-- 🔹 Marketplace Section -->
+      <section class="marketplace">
+        <h2 class="section-title">Latest Products</h2>
+        <div class="product-grid">
+
+          <!-- Product Card -->
+          <div class="product-card">
+            <img src="assets/sample-product.jpg" alt="Product Image">
+            <h3 class="product-title">Instagram Account (Real Followers)</h3>
+            <p class="product-price">₦5,000</p>
+            <button class="buy-button">Buy Now</button>
+          </div>
+
+          <!-- 🔹 Admin Upload Section -->
+      <section class="product-upload scroll-fade-in" id="adminUpload" style="display: none;">
+        <h2 class="section-title">Upload New Product</h2>
+        <form class="upload-form">
+        <input type="text" placeholder="Product Title" required>
+        <input type="number" placeholder="Price (₦)" required>
+        <input type="file" accept="image/*" required>
+        <textarea placeholder="Product Description" required></textarea>
+
+        <!-- 🔹 Hidden Commission Value (Platform Cut: ₦500 for now) -->
+        <input type="hidden" name="platformCut" value="500">
+
+        <button type="submit">Upload Product</button>
+      </form>
+      </section>
+
+          <!-- Another Product Card -->
+          <div class="product-card">
+            <img src="assets/sample-product.jpg" alt="Product Image">
+            <h3 class="product-title">VPN Login (1 Month)</h3>
+            <p class="product-price">₦2,500</p>
+            <button class="buy-button">Buy Now</button>
+          </div>
+
+        </div>
+      </section>
+    </script>
+  </body>
 </html>

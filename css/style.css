@@ -894,10 +894,7 @@ button:focus,
   transition: background 0.3s ease;
 }
 
-.upload-form button:hover {
-  background-color: #12823b;
-}
-
+/*
 body {
   background: white !important;
   color: black !important;
@@ -905,3 +902,4 @@ body {
 * {
   border: 1px solid red;
 }
+*/

@@ -385,7 +385,7 @@ button:focus,
 }
 
 /* -------------------------
-   PRELOADER
+   PRELOADER (Merged & Final)
 ---------------------------- */
 #preloader {
   position: fixed;
@@ -393,19 +393,22 @@ button:focus,
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--white-color);
+  background: var(--white-color); /* ✅ Clean background */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
   transition:
-    opacity 0.6s ease,
-    visibility 0.6s ease;
+    opacity 0.8s ease,
+    visibility 0.8s ease;
 }
 
 #preloader.fade-out {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
 }
 
 /* -------------------------
@@ -893,4 +896,12 @@ button:focus,
 
 .upload-form button:hover {
   background-color: #12823b;
+}
+
+body {
+  background: white !important;
+  color: black !important;
+}
+* {
+  border: 1px solid red;
 }

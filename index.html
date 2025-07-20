@@ -23,7 +23,7 @@
     <!-- 🔹 Navbar -->
     <nav class="navbar">
       <div class="logo">
-        <img src="assets/images/logo.png" alt="OLAHUB Logo" class="rolling-glow-logo" />
+        <img src="assets/images/logo.png" alt="OLAHUB Logo" />
       </div>
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
@@ -34,11 +34,19 @@
       </ul>
     </nav>
 
-    <!-- 🔹 Hero Section -->
+    <!-- ✅ HERO SECTION -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Your Gateway to <span id="typewriter-text"></span></h1>
-        <p>Boost your social media presence with premium tools, accounts, and digital power.</p>
+        <h1>
+          Your Gateway to
+          <span id="typewriter-text" class="typewriter-glow">Social Media Accounts</span>
+        </h1>
+        <p>
+          Boost your social media presence with OLAHUB premium tools. Unlock a world of virtual
+          numbers, ready-to-use social media accounts, powerful boosting services, and premium
+          digital logins. — powered by <span class="typewriter-glow">Chase</span> &
+          <span class="typewriter-glow">Ijoba</span>.
+        </p>
         <a href="#" class="hero-btn">Get Started</a>
       </div>
     </section>
@@ -48,10 +56,36 @@
       <img src="assets/images/logo-loading.png" alt="Loading..." class="rolling-glow-logo" />
     </div>
 
-    <!-- ✅ Hamburger Toggle -->
+    <!-- ✅ PLACEHOLDER: ABOUT / FEATURES -->
+    <section id="about">
+      <h2>About OlaHub</h2>
+      <p>Coming soon: mission, value, what sets us apart...</p>
+    </section>
+
+    <!-- ✅ PLACEHOLDER: SERVICES -->
+    <section id="services">
+      <h2>Our Core Services</h2>
+      <p>Account Sales • OTP Services • Social Boosting • Logs • More</p>
+    </section>
+
+    <!-- ✅ PLACEHOLDER: TESTIMONIALS -->
+    <section id="testimonials">
+      <h2>What People Are Saying</h2>
+      <p>Coming soon: reviews, trust badges, endorsements...</p>
+    </section>
+
+    <!-- ✅ FOOTER -->
+    <footer>
+      <p>
+        © 2025 OLAHUB. Powered by <span class="typewriter-glow">Chase</span> &
+        <span class="typewriter-glow">Ijoba</span>.
+      </p>
+    </footer>
+
+    <!-- ✅ HAMBURGER TOGGLE -->
     <div class="hamburger-icon" id="hamburgerBtn">☰</div>
 
-    <!-- ✅ Hamburger Menu -->
+    <!-- ✅ HAMBURGER MENU -->
     <div class="menu-overlay hidden" id="menuOverlay"></div>
     <div class="hamburger-menu hidden" id="hamburgerMenu">
       <div class="menu-close-button" id="closeMenu">×</div>
@@ -113,6 +147,48 @@
         </div>
       </div>
     </section>
+
+    <!-- ✅ HERO TYPEWRITER SCRIPT – PLACE IT HERE -->
+    <script>
+      const phrases = [
+        'Social Media Accounts',
+        'Virtual Numbers and OTP',
+        'Social Media Boosting',
+        'Strong VPN Logs',
+        'Premium Streaming Logs'
+      ];
+      const el = document.getElementById('typewriter-text');
+      let currentPhrase = 0;
+      let currentLetter = 0;
+      let isDeleting = false;
+
+      function type() {
+        const current = phrases[currentPhrase];
+        const partial = current.substring(0, currentLetter);
+        el.textContent = partial;
+
+        if (!isDeleting) {
+          if (currentLetter < current.length) {
+            currentLetter++;
+            setTimeout(type, 150);
+          } else {
+            isDeleting = true;
+            setTimeout(type, 2000);
+          }
+        } else {
+          if (currentLetter > 0) {
+            currentLetter--;
+            setTimeout(type, 100);
+          } else {
+            isDeleting = false;
+            currentPhrase = (currentPhrase + 1) % phrases.length;
+            setTimeout(type, 1200);
+          }
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', type);
+    </script>
 
     <!-- ✅ Valid script only -->
     <script>

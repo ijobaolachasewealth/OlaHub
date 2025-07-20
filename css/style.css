@@ -115,6 +115,21 @@ button:focus,
   box-shadow: 0 0 10px var(--optional-color);
 }
 
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #f0a500;
+  animation: blink 1s step-start infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 /* -------------------------
    PRELOADER LOGO
 ---------------------------- */

@@ -195,3 +195,66 @@ function initHamburgerMenu() {
     });
   }
 }
+
+// ------------------------------
+// PRODUCT UPLOAD FORM HANDLER
+// ------------------------------
+const uploadForm = document.querySelector(".upload-form");
+
+if (uploadForm) {
+  uploadForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const title = uploadForm.querySelector("input[type='text']").value;
+    const price = uploadForm.querySelector("input[type='number']").value;
+    const file = uploadForm.querySelector("input[type='file']").files[0];
+    const desc = uploadForm.querySelector("textarea").value;
+
+    if (!title || !price || !file || !desc) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+        const commission = parseInt(uploadForm.querySelector("input[name='platformCut']").value);
+    const sellerAmount = parseInt(price) - commission;
+
+    alert(`✅ Product uploaded:
+Title: ${title}
+Price: ₦${price}
+Platform Cut: ₦${commission}
+Seller Gets: ₦${sellerAmount}`);
+    
+    uploadForm.reset();
+    addProductCard(title, price);
+  });
+}
+
+// ------------------------------
+// SHOW ADMIN UPLOAD (SIMULATED)
+// ------------------------------
+const isAdmin = true; // Change to false if not admin
+
+if (isAdmin) {
+  const uploadSection = document.getElementById("adminUpload");
+  if (uploadSection) uploadSection.style.display = "block";
+}
+
+// ------------------------------
+// ADD PRODUCT TO GRID (Simulated Listing)
+// ------------------------------
+function addProductCard(title, price, imageSrc = "assets/sample-product.jpg") {
+  const grid = document.querySelector(".product-grid");
+  if (!grid) return;
+
+  const card = document.createElement("div");
+  card.className = "product-card";
+
+  card.innerHTML = `
+    <img src="${imageSrc}" alt="Product Image">
+    <h3 class="product-title">${title}</h3>
+    <p class="product-price">₦${price}</p>
+    <button class="buy-button">Buy Now</button>
+  `;
+
+  grid.prepend(card);
+}

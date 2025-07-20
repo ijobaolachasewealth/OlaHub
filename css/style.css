@@ -681,3 +681,115 @@ button:focus,
     text-shadow: 0 0 8px #ffaa33, 0 0 20px #ffaa33;
   }
 }
+
+/* 🔹 Marketplace Layout */
+.marketplace {
+  padding: 80px 20px;
+  background-color: #f9fafb;
+  color: #0f172a;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #1f2937;
+}
+
+/* 🔹 Product Grid */
+.product-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  justify-content: center;
+}
+
+/* 🔹 Product Card */
+.product-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #16a34a;
+  margin-bottom: 15px;
+}
+
+.buy-button {
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.buy-button:hover {
+  background-color: #e07d00;
+}
+
+/* 🔹 Admin Upload Form */
+.product-upload {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  color: #0f172a;
+  text-align: center;
+  border-top: 1px solid #e5e7eb;
+}
+
+.upload-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.upload-form input,
+.upload-form textarea {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.upload-form button {
+  background-color: #16a34a;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.upload-form button:hover {
+  background-color: #12823b;
+}

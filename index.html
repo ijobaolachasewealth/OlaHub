@@ -51,11 +51,6 @@
       </div>
     </section>
 
-    <!-- ✅ Preloader -->
-    <div id="preloader">
-      <img src="assets/images/logo-loading.png" alt="Loading..." class="rolling-glow-logo" />
-    </div>
-
     <!-- ✅ PLACEHOLDER: ABOUT / FEATURES -->
     <section id="about">
       <h2>About OlaHub</h2>
@@ -149,16 +144,18 @@
     </section>
 
     <!-- ✅ Valid script only -->
-    <script>
-      window.addEventListener('load', () => {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-          preloader.classList.add('fade-out');
-          setTimeout(() => {
-            preloader.style.display = 'none';
-          }, 1000);
-        }
-      });
-    </script>
+    <!--
+<script>
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 1000);
+    }
+  });
+</script>
+-->
   </body>
 </html>

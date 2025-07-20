@@ -1,10 +1,7 @@
-// === OLAHUB JS v1.5 ===
+// === OLAHUB JS v1.5.1 ===
 
-// ------------------------------
-// HERO TYPEWRITER TEXT
-// ------------------------------
-// Typewriter animation
 console.log('✅ main.js loaded');
+
 const typewriterTarget = document.getElementById('typewriter-text');
 
 const phrases = [
@@ -28,7 +25,9 @@ function type() {
   }
 
   const visibleText = currentText.substring(0, currentChar);
-  typewriterTarget.innerHTML = `<span class="animated-chase">${visibleText}</span>`;
+  if (typewriterTarget) {
+    typewriterTarget.innerHTML = `<span class="animated-chase">${visibleText}</span>`;
+  }
 
   let speed = isDeleting ? 50 : 100;
 
@@ -43,8 +42,6 @@ function type() {
 
   setTimeout(type, speed);
 }
-
-type();
 
 // ------------------------------
 // GLOWING SIGNATURE TYPEWRITER
@@ -93,7 +90,7 @@ window.addEventListener('load', () => {
 // DOM INITIALIZATION
 // ------------------------------
 document.addEventListener('DOMContentLoaded', () => {
-  type(); // ✅ This is your actual typewriter function
+  type(); // ✅ Single typewriter call here only
   initCustomCursor();
   initHamburgerMenu();
 });

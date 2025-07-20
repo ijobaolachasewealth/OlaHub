@@ -15,30 +15,18 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Paytone+One&family=Public+Sans&display=swap"
       rel="stylesheet"
     />
-
     <!-- ✅ Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
   </head>
+
   <body>
     <!-- ✅ Preloader -->
     <div id="preloader">
       <img src="assets/images/logo-loading.png" alt="Loading..." class="rolling-glow-logo" />
     </div>
 
-    <script>
-      window.addEventListener('load', () => {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-          preloader.classList.add('fade-out');
-          setTimeout(() => {
-            preloader.style.display = 'none';
-          }, 1000);
-        }
-      });
-    </script>
-
     <!-- 🔹 Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" id="mainHeader">
       <div class="logo">
         <img src="assets/images/logo.png" alt="OLAHUB Logo" />
       </div>
@@ -52,19 +40,19 @@
     </nav>
 
     <!-- ✅ HERO SECTION -->
-    <section class="hero">
+    <section class="hero hero-gradient hero-section scroll-fade-in">
       <div class="hero-content">
         <h1>
           Your Gateway to
-          <span id="typewriter-text" class="typewriter-glow">Social Media Accounts</span>
+          <span id="typewriter-text" class="animated-chase">Social Media Accounts</span>
         </h1>
         <p>
           Boost your social media presence with OLAHUB premium tools. Unlock a world of virtual
           numbers, ready-to-use social media accounts, powerful boosting services, and premium
-          digital logins. — powered by <span class="typewriter-glow">Chase</span> &
-          <span class="typewriter-glow">Ijoba</span>.
+          digital logins. — powered by
+          <span class="animated-chase">CHASE</span> & <span class="animated-ijoba">IJOBA</span>.
         </p>
-        <a href="#" class="hero-btn">Get Started</a>
+        <a href="#" class="cta-button">Get Started</a>
       </div>
     </section>
 
@@ -85,39 +73,6 @@
       <h2>What People Are Saying</h2>
       <p>Coming soon: reviews, trust badges, endorsements...</p>
     </section>
-
-    <!-- ✅ FOOTER -->
-    <footer>
-      <p>
-        © 2025 OLAHUB. Powered by <span class="typewriter-glow">Chase</span> &
-        <span class="typewriter-glow">Ijoba</span>.
-      </p>
-    </footer>
-
-    <!-- ✅ HAMBURGER TOGGLE -->
-    <div class="hamburger-icon" id="hamburgerBtn">☰</div>
-
-    <!-- ✅ HAMBURGER MENU -->
-    <div class="menu-overlay hidden" id="menuOverlay"></div>
-    <div class="hamburger-menu hidden" id="hamburgerMenu">
-      <div class="menu-close-button" id="closeMenu">×</div>
-
-      <ul>
-        <li style="--i: 1">Dashboard</li>
-        <li style="--i: 2">My Orders</li>
-        <li style="--i: 3">Top-up Wallet</li>
-        <li style="--i: 4">Settings</li>
-        <li style="--i: 5">Logout</li>
-      </ul>
-
-      <!-- 🔹 Footer Signature INSIDE the hamburger menu -->
-      <div class="menu-signature-wrapper">
-        <p class="menu-signature" data-signature="|👤| © 𝗜𝗝❂𝗕𝗔 ☯︎𝗟𝗔 𝗖𝗛𝗔𝗦𝗘 𝗪𝗘𝗔𝗟𝗧𝗛™"></p>
-      </div>
-    </div>
-
-    <!-- ✅ Custom Cursor -->
-    <div class="custom-cursor" id="customCursor"></div>
 
     <!-- 🔹 Marketplace Section -->
     <section class="marketplace">
@@ -140,7 +95,7 @@
             <input type="file" accept="image/*" required />
             <textarea placeholder="Product Description" required></textarea>
 
-            <!-- 🔹 Hidden Commission Value (Platform Cut: ₦500 for now) -->
+            <!-- 🔹 Hidden Commission Value -->
             <input type="hidden" name="platformCut" value="500" />
 
             <button type="submit">Upload Product</button>
@@ -157,20 +112,46 @@
       </div>
     </section>
 
-    <!-- ✅ Valid script only -->
-    <script>
-      window.addEventListener('load', () => {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-          preloader.classList.add('fade-out');
-          setTimeout(() => {
-            preloader.style.display = 'none';
-          }, 1000);
-        }
-      });
-    </script>
+    <!-- ✅ FOOTER -->
+    <footer class="site-footer">
+      <p>
+        © 2025 OLAHUB — Empowering Your Digital Power. Powered by
+        <span class="animated-chase">CHASE</span>
+      </p>
+    </footer>
 
-    <!-- ✅ Main Script (Update as Needed) -->
+    <!-- ✅ HAMBURGER ICON -->
+    <div class="hamburger" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- ✅ MENU OVERLAY -->
+    <div class="menu-overlay hidden" id="menuOverlay"></div>
+
+    <!-- ✅ HAMBURGER MENU -->
+    <div class="mobile-menu" id="hamburgerMenu">
+      <div class="menu-close-button" id="closeMenu">×</div>
+
+      <ul>
+        <li style="--i: 1">Dashboard</li>
+        <li style="--i: 2">My Orders</li>
+        <li style="--i: 3">Top-up Wallet</li>
+        <li style="--i: 4">Settings</li>
+        <li style="--i: 5">Logout</li>
+      </ul>
+
+      <!-- 🔹 Footer Signature INSIDE the hamburger menu -->
+      <div class="menu-signature-wrapper">
+        <p class="menu-signature" data-signature="|👤| © 𝗜𝗝❂𝗕𝗔 ☯︎𝗟𝗔 𝗖𝗛𝗔𝗦𝗘 𝗪𝗘𝗔𝗟𝗧𝗛™"></p>
+      </div>
+    </div>
+
+    <!-- ✅ Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- ✅ JS Files -->
     <script src="js/main.js"></script>
   </body>
 </html>

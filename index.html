@@ -148,48 +148,6 @@
       </div>
     </section>
 
-    <!-- ✅ HERO TYPEWRITER SCRIPT – PLACE IT HERE -->
-    <script>
-      const phrases = [
-        'Social Media Accounts',
-        'Virtual Numbers and OTP',
-        'Social Media Boosting',
-        'Strong VPN Logs',
-        'Premium Streaming Logs'
-      ];
-      const el = document.getElementById('typewriter-text');
-      let currentPhrase = 0;
-      let currentLetter = 0;
-      let isDeleting = false;
-
-      function type() {
-        const current = phrases[currentPhrase];
-        const partial = current.substring(0, currentLetter);
-        el.textContent = partial;
-
-        if (!isDeleting) {
-          if (currentLetter < current.length) {
-            currentLetter++;
-            setTimeout(type, 150);
-          } else {
-            isDeleting = true;
-            setTimeout(type, 2000);
-          }
-        } else {
-          if (currentLetter > 0) {
-            currentLetter--;
-            setTimeout(type, 100);
-          } else {
-            isDeleting = false;
-            currentPhrase = (currentPhrase + 1) % phrases.length;
-            setTimeout(type, 1200);
-          }
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', type);
-    </script>
-
     <!-- ✅ Valid script only -->
     <script>
       window.addEventListener('load', () => {

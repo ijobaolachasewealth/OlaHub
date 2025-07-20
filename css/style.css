@@ -521,3 +521,163 @@ button:focus,
     transform: translateY(0) !important;
   }
 }
+
+/* 🔹 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #0d1117; /* Dark base */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ff9900; /* Glow hover color */
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #0f172a, #1e293b); /* Dark gradient */
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-content h1 span {
+  color: #ff9900;
+  text-shadow: 0 0 8px #ff9900;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-btn {
+  background-color: #ff9900;
+  color: #0f172a;
+  padding: 12px 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #ff9900;
+}
+
+/* -------------------------
+   FOOTER 
+---------------------------- */
+<footer class="site-footer">
+  <p>© 2025 OLAHUB — Empowering Your Digital Power. Powered by <span class="animated-chase">CHASE</span></p>
+</footer>
+
+.site-footer {
+  background-color: #0d1117;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.95rem;
+  border-top: 1px solid #1f2937;
+}
+
+.site-footer span.animated-chase {
+  color: #ff9900;
+  font-weight: bold;
+  text-shadow: 0 0 6px #ff9900;
+}
+
+.animated-chase,
+.animated-ijoba {
+  display: inline-block;
+  color: #ff9900;
+  font-weight: bold;
+  animation: glowPulse 2.5s ease-in-out infinite;
+  text-shadow: 0 0 8px #ff9900, 0 0 16px #ff9900;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 6px #ff9900, 0 0 12px #ff9900;
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    text-shadow: 0 0 16px #ff9900, 0 0 24px #ffaa33;
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+/* 🔹 Signature Footer in Hamburger */
+.menu-signature-wrapper {
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-signature {
+  color: #ff9900;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+.glow-char {
+  display: inline-block;
+  opacity: 0.85;
+  animation: glow-char 1.8s ease-in-out infinite;
+}
+
+@keyframes glow-char {
+  0%, 100% {
+    text-shadow: 0 0 4px #ff9900, 0 0 10px #ff9900;
+  }
+  50% {
+    text-shadow: 0 0 8px #ffaa33, 0 0 20px #ffaa33;
+  }
+}

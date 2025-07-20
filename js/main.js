@@ -3,6 +3,9 @@
 // ------------------------------
 // HERO TYPEWRITER TEXT
 // ------------------------------
+// Typewriter animation
+const typewriterTarget = document.getElementById("typewriter-text");
+
 const phrases = [
   "Social Media Accounts",
   "Virtual Numbers and OTP",
@@ -15,26 +18,32 @@ let currentPhrase = 0;
 let currentChar = 0;
 let isDeleting = false;
 
-function typeHeroText() {
-  const typeTarget = document.getElementById("typewriter");
-  if (!typeTarget) return;
-
-  const text = phrases[currentPhrase];
-  const visible = text.substring(0, currentChar);
-  typeTarget.innerHTML = visible;
-
-  if (!isDeleting && currentChar < text.length) {
-    currentChar++;
-    setTimeout(typeHeroText, 100);
-  } else if (isDeleting && currentChar > 0) {
+function type() {
+  const currentText = phrases[currentPhrase];
+  if (isDeleting) {
     currentChar--;
-    setTimeout(typeHeroText, 50);
   } else {
-    isDeleting = !isDeleting;
-    if (!isDeleting) currentPhrase = (currentPhrase + 1) % phrases.length;
-    setTimeout(typeHeroText, 1500);
+    currentChar++;
   }
+
+  const visibleText = currentText.substring(0, currentChar);
+  typewriterTarget.innerHTML = `<span class="animated-chase">${visibleText}</span>`;
+
+  let speed = isDeleting ? 50 : 100;
+
+  if (!isDeleting && currentChar === currentText.length) {
+    speed = 2000;
+    isDeleting = true;
+  } else if (isDeleting && currentChar === 0) {
+    isDeleting = false;
+    currentPhrase = (currentPhrase + 1) % phrases.length;
+    speed = 500;
+  }
+
+  setTimeout(type, speed);
 }
+
+type();
 
 // ------------------------------
 // GLOWING SIGNATURE TYPEWRITER
@@ -83,7 +92,7 @@ window.addEventListener("load", () => {
 // DOM INITIALIZATION
 // ------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  typeHeroText();
+  type(); // ✅ This is your actual typewriter function
   initCustomCursor();
   initHamburgerMenu();
 });

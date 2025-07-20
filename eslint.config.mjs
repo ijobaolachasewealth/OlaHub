@@ -11,12 +11,9 @@ export default defineConfig([
         ...globals.node
       }
     },
-    plugins: {
-      js
-    },
     rules: {
       // You can override rules here
     },
-    extends: ['eslint:recommended', 'prettier']
+    extends: ['eslint:recommended', 'prettier', js.configs.recommended]
   }
 ]);

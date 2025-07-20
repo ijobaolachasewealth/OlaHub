@@ -4,14 +4,14 @@
 // HERO TYPEWRITER TEXT
 // ------------------------------
 // Typewriter animation
-const typewriterTarget = document.getElementById("typewriter-text");
+const typewriterTarget = document.getElementById('typewriter-text');
 
 const phrases = [
-  "Social Media Accounts",
-  "Virtual Numbers and OTP",
-  "Social Media Boosting",
-  "Strong VPN Logs",
-  "Premium Streaming Logs"
+  'Social Media Accounts',
+  'Virtual Numbers and OTP',
+  'Social Media Boosting',
+  'Strong VPN Logs',
+  'Premium Streaming Logs'
 ];
 
 let currentPhrase = 0;
@@ -52,18 +52,18 @@ let signatureAnimated = false;
 function animateSignatureOnce() {
   if (signatureAnimated) return;
 
-  const sig = document.querySelector(".menu-signature");
+  const sig = document.querySelector('.menu-signature');
   if (!sig) return;
 
-  const text = sig.getAttribute("data-signature");
+  const text = sig.getAttribute('data-signature');
   let index = 0;
-  sig.innerHTML = "";
+  sig.innerHTML = '';
 
   const interval = setInterval(() => {
     if (index < text.length) {
-      const span = document.createElement("span");
+      const span = document.createElement('span');
       span.textContent = text[index];
-      span.classList.add("glow-char");
+      span.classList.add('glow-char');
       sig.appendChild(span);
       index++;
     } else {
@@ -76,12 +76,12 @@ function animateSignatureOnce() {
 // ------------------------------
 // PAGE PRELOADER FADE OUT
 // ------------------------------
-window.addEventListener("load", () => {
-  const preloader = document.getElementById("preloader");
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
   if (preloader) {
-    preloader.classList.add("fade-out");
+    preloader.classList.add('fade-out');
     setTimeout(() => {
-      preloader.style.display = "none";
+      preloader.style.display = 'none';
     }, 1000);
   }
 
@@ -91,7 +91,7 @@ window.addEventListener("load", () => {
 // ------------------------------
 // DOM INITIALIZATION
 // ------------------------------
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   type(); // ✅ This is your actual typewriter function
   initCustomCursor();
   initHamburgerMenu();
@@ -102,9 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // ------------------------------
 function handleScrollAnimations() {
   const elements = document.querySelectorAll('.scroll-fade-in');
-  elements.forEach(el => {
-    if (el.classList.contains("hero-section")) {
-      el.classList.add("visible");
+  elements.forEach((el) => {
+    if (el.classList.contains('hero-section')) {
+      el.classList.add('visible');
       return;
     }
     const rect = el.getBoundingClientRect();
@@ -121,7 +121,7 @@ function initCustomCursor() {
   const cursor = document.getElementById('customCursor');
   if (!cursor) return;
   if (window.innerWidth < 768) {
-    cursor.style.display = "none";
+    cursor.style.display = 'none';
     return;
   }
 
@@ -132,7 +132,7 @@ function initCustomCursor() {
   });
 
   const hoverables = document.querySelectorAll('a, button, .cta-button');
-  hoverables.forEach(el => {
+  hoverables.forEach((el) => {
     el.addEventListener('mouseenter', () => cursor.classList.add('active'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
   });
@@ -151,47 +151,47 @@ window.addEventListener('scroll', () => {
 // HAMBURGER MENU CONTROLS
 // ------------------------------
 function initHamburgerMenu() {
-  const hamburger = document.querySelector(".hamburger");
-  const menu = document.querySelector(".mobile-menu");
-  const overlay = document.getElementById("menuOverlay");
-  const closeBtn = document.getElementById("closeMenu");
+  const hamburger = document.querySelector('.hamburger');
+  const menu = document.querySelector('.mobile-menu');
+  const overlay = document.getElementById('menuOverlay');
+  const closeBtn = document.getElementById('closeMenu');
   const body = document.body;
 
   if (!hamburger || !menu) return;
 
-  hamburger.addEventListener("click", () => {
-    menu.classList.toggle("menu-open");
-    hamburger.classList.toggle("is-active");
-    overlay.classList.toggle("visible");
-    overlay.classList.toggle("hidden");
-    body.classList.toggle("no-scroll");
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('menu-open');
+    hamburger.classList.toggle('is-active');
+    overlay.classList.toggle('visible');
+    overlay.classList.toggle('hidden');
+    body.classList.toggle('no-scroll');
 
     animateSignatureOnce();
 
-    const menuItems = menu.querySelectorAll("li");
+    const menuItems = menu.querySelectorAll('li');
     menuItems.forEach((item, index) => {
       item.style.animationDelay = `${index * 0.1}s`;
-      item.classList.add("slide-in");
+      item.classList.add('slide-in');
     });
   });
 
   if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      menu.classList.remove("menu-open");
-      hamburger.classList.remove("is-active");
-      overlay.classList.add("hidden");
-      overlay.classList.remove("visible");
-      body.classList.remove("no-scroll");
+    closeBtn.addEventListener('click', () => {
+      menu.classList.remove('menu-open');
+      hamburger.classList.remove('is-active');
+      overlay.classList.add('hidden');
+      overlay.classList.remove('visible');
+      body.classList.remove('no-scroll');
     });
   }
 
   if (overlay) {
-    overlay.addEventListener("click", () => {
-      menu.classList.remove("menu-open");
-      hamburger.classList.remove("is-active");
-      overlay.classList.add("hidden");
-      overlay.classList.remove("visible");
-      body.classList.remove("no-scroll");
+    overlay.addEventListener('click', () => {
+      menu.classList.remove('menu-open');
+      hamburger.classList.remove('is-active');
+      overlay.classList.add('hidden');
+      overlay.classList.remove('visible');
+      body.classList.remove('no-scroll');
     });
   }
 }
@@ -199,23 +199,23 @@ function initHamburgerMenu() {
 // ------------------------------
 // PRODUCT UPLOAD FORM HANDLER
 // ------------------------------
-const uploadForm = document.querySelector(".upload-form");
+const uploadForm = document.querySelector('.upload-form');
 
 if (uploadForm) {
-  uploadForm.addEventListener("submit", function (e) {
+  uploadForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     const title = uploadForm.querySelector("input[type='text']").value;
     const price = uploadForm.querySelector("input[type='number']").value;
     const file = uploadForm.querySelector("input[type='file']").files[0];
-    const desc = uploadForm.querySelector("textarea").value;
+    const desc = uploadForm.querySelector('textarea').value;
 
     if (!title || !price || !file || !desc) {
-      alert("Please fill in all fields.");
+      alert('Please fill in all fields.');
       return;
     }
 
-        const commission = parseInt(uploadForm.querySelector("input[name='platformCut']").value);
+    const commission = parseInt(uploadForm.querySelector("input[name='platformCut']").value);
     const sellerAmount = parseInt(price) - commission;
 
     alert(`✅ Product uploaded:
@@ -223,7 +223,7 @@ Title: ${title}
 Price: ₦${price}
 Platform Cut: ₦${commission}
 Seller Gets: ₦${sellerAmount}`);
-    
+
     uploadForm.reset();
     addProductCard(title, price);
   });
@@ -235,19 +235,19 @@ Seller Gets: ₦${sellerAmount}`);
 const isAdmin = true; // Change to false if not admin
 
 if (isAdmin) {
-  const uploadSection = document.getElementById("adminUpload");
-  if (uploadSection) uploadSection.style.display = "block";
+  const uploadSection = document.getElementById('adminUpload');
+  if (uploadSection) uploadSection.style.display = 'block';
 }
 
 // ------------------------------
 // ADD PRODUCT TO GRID (Simulated Listing)
 // ------------------------------
-function addProductCard(title, price, imageSrc = "assets/sample-product.jpg") {
-  const grid = document.querySelector(".product-grid");
+function addProductCard(title, price, imageSrc = 'assets/sample-product.jpg') {
+  const grid = document.querySelector('.product-grid');
   if (!grid) return;
 
-  const card = document.createElement("div");
-  card.className = "product-card";
+  const card = document.createElement('div');
+  card.className = 'product-card';
 
   card.innerHTML = `
     <img src="${imageSrc}" alt="Product Image">

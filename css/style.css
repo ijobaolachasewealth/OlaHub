@@ -394,11 +394,11 @@ button:focus,
 #preloader {
   position: fixed;
   inset: 0;
-  background-color: #0a0d26; /* match your hero bg */
-  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #0a0d26;
+  z-index: 9999;
   transition: opacity 0.8s ease;
 }
 

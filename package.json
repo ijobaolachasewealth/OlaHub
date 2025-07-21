@@ -1,4 +1,12 @@
 {
+  "name": "olahub",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "prepare": "husky install",
+    "build:css": "sass scss/main.scss css/style.css --no-source-map",
+    "dev": "live-server"
+  },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
     "eslint": "^9.31.0",
@@ -7,9 +15,8 @@
     "husky": "^9.1.7",
     "prettier": "^3.6.2",
     "stylelint": "^16.22.0",
-    "stylelint-config-standard": "^38.0.0"
-  },
-  "scripts": {
-    "prepare": "husky install"
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-scss": "^6.12.1"
   }
 }

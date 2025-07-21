@@ -1,13 +1,9 @@
 {
-  {
-  "extends": "stylelint-config-standard",
+  "extends": ["stylelint-config-standard-scss"],
+  "plugins": ["stylelint-scss"],
   "rules": {
-    "indentation": null,
-    "string-quotes": null,
-    "color-hex-case": null,
+    "keyframes-name-pattern": "^[a-z0-9-]+$",
     "no-descending-specificity": null,
-    "no-duplicate-selectors": null,
-    "keyframes-name-pattern": null,
-    "declaration-property-value-keyword-no-deprecated": null
+    "no-duplicate-selectors": true
   }
 }

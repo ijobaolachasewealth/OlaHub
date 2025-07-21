@@ -1,4 +1,5 @@
 /* === OLAHUB CSS v1.4 === */
+
 /* File: olahub/css/style.css */
 
 /* -------------------------
@@ -17,16 +18,14 @@ body {
 }
 
 :root {
-  --main-color: hsl(153, 65%, 40%);
-  --optional-color: hsl(32, 100%, 50%);
+  --main-color: hsl(153deg 65% 40%);
+  --optional-color: hsl(32deg 100% 50%);
   --glow-color: #ffa500;
-  --white-color: #ffffff;
-  --black-color: #000000;
-
+  --white-color: #fff;
+  --black-color: #000;
   --body-font-family: 'Inter', sans-serif;
   --heading-font-family: 'Paytone One', sans-serif;
   --menu-font-family: 'Public Sans', sans-serif;
-
   --font-size: 15px;
   --transition: all ease 0.5s;
   --border-radius: 4px;
@@ -41,9 +40,9 @@ body {
 ---------------------------- */
 [data-theme='dark'] {
   --white-color: #1e293b;
-  --black-color: #ffffff;
-  --main-color: hsl(153, 80%, 30%);
-  --optional-color: hsl(32, 100%, 60%);
+  --black-color: #fff;
+  --main-color: hsl(153deg 80% 30%);
+  --optional-color: hsl(32deg 100% 60%);
   --glow-color: #ffd700;
 }
 
@@ -158,6 +157,7 @@ button:focus,
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -167,6 +167,7 @@ button:focus,
   from {
     filter: drop-shadow(0 0 5px var(--glow-color));
   }
+
   to {
     filter: drop-shadow(0 0 20px var(--glow-color));
   }
@@ -194,6 +195,7 @@ button:focus,
   0% {
     text-shadow: 0 0 5px var(--glow-color);
   }
+
   100% {
     text-shadow: 0 0 20px var(--glow-color);
   }
@@ -211,7 +213,7 @@ button:focus,
   align-items: center;
   padding: 1rem 2rem;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
 }
 
 .sticky-header .nav-links {
@@ -263,6 +265,7 @@ button:focus,
   justify-content: space-between;
   position: relative;
 }
+
 .hamburger span {
   display: block;
   height: 3px;
@@ -270,12 +273,15 @@ button:focus,
   border-radius: 2px;
   transition: var(--transition);
 }
+
 .hamburger.is-active span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
+
 .hamburger.is-active span:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger.is-active span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
 }
@@ -294,6 +300,7 @@ button:focus,
   cursor: pointer;
   z-index: 9999;
 }
+
 .hamburger.is-active span {
   background: var(--glow-color); /* or var(--main-color) */
 }
@@ -313,6 +320,7 @@ button:focus,
   flex-direction: column;
   justify-content: space-between;
 }
+
 .mobile-menu.menu-open {
   right: 0;
 }
@@ -325,31 +333,34 @@ button:focus,
 /* Signature animation */
 .menu-signature {
   padding: 20px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: Orbitron, sans-serif;
   font-size: 1rem;
   text-align: center;
   white-space: pre;
   color: #ffd700;
   text-shadow:
-    0 0 6px #ff9900,
-    0 0 10px #ff6600;
+    0 0 6px #f90,
+    0 0 10px #f60;
   letter-spacing: 1px;
 }
+
 .glow-char {
   animation: glowPulse 1s ease-in-out infinite alternate;
 }
+
 @keyframes glowPulse {
   0% {
     opacity: 0.5;
     text-shadow:
-      0 0 3px #ffaa00,
-      0 0 6px #ff8800;
+      0 0 3px #fa0,
+      0 0 6px #f80;
   }
+
   100% {
     opacity: 1;
     text-shadow:
       0 0 6px #ffd700,
-      0 0 12px #ff6600;
+      0 0 12px #f60;
   }
 }
 
@@ -358,6 +369,7 @@ button:focus,
   transform: translateX(30px);
   animation: slideInMenuItem 0.5s ease forwards;
 }
+
 @keyframes slideInMenuItem {
   to {
     opacity: 1;
@@ -374,16 +386,18 @@ button:focus,
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgb(0 0 0 / 50%);
   z-index: 1300;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
 }
+
 .menu-overlay.visible {
   opacity: 1;
   pointer-events: all;
 }
+
 .menu-overlay.hidden {
   display: none;
 }
@@ -417,6 +431,7 @@ button:focus,
     opacity 0.8s ease,
     transform 0.8s ease;
 }
+
 .scroll-fade-in.visible {
   opacity: 1;
   transform: translateY(0);
@@ -436,16 +451,18 @@ button:focus,
   transition:
     transform 0.15s ease-out,
     opacity 0.3s ease;
-  background-color: rgba(250, 204, 21, 0.2);
+  background-color: rgb(250 204 21 / 20%);
   backdrop-filter: blur(4px);
   mix-blend-mode: difference;
   transform: translate3d(0, 0, 0);
 }
+
 .custom-cursor.active {
   transform: scale(2);
-  background-color: rgba(250, 204, 21, 0.4);
+  background-color: rgb(250 204 21 / 40%);
   opacity: 0.8;
 }
+
 .custom-cursor::before {
   content: '';
   position: absolute;
@@ -457,19 +474,22 @@ button:focus,
   transform: translate(-50%, -50%);
   box-shadow:
     0 0 20px #facc15,
-    0 0 40px rgba(250, 204, 21, 0.5);
+    0 0 40px rgb(250 204 21 / 50%);
   animation: cursorPulse 1.8s infinite ease-in-out;
   z-index: -1;
 }
+
 @keyframes cursorPulse {
   0% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
+
   50% {
     transform: translate(-50%, -50%) scale(1.5);
     opacity: 0.3;
   }
+
   100% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
@@ -484,17 +504,21 @@ button:focus,
   background-size: 400% 400%;
   animation: gradientShift 12s ease infinite;
 }
+
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
+
 .glow-text {
   font-weight: bold;
   color: #facc15;
@@ -519,16 +543,20 @@ button:focus,
   animation: pulse-bg 4s ease-in-out infinite;
   transition: opacity 0.3s;
 }
+
 .cta-button:hover::before {
   opacity: 1;
 }
+
 @keyframes pulse-bg {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -537,7 +565,7 @@ button:focus,
 /* -------------------------
    RESPONSIVE STYLES
 ---------------------------- */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .hero-section {
     padding: 4rem 1.5rem;
     text-align: center;
@@ -626,7 +654,7 @@ button:focus,
 }
 
 .nav-links li a:hover {
-  color: #ff9900; /* Glow hover color */
+  color: #f90; /* Glow hover color */
 }
 
 .hero {
@@ -646,8 +674,8 @@ button:focus,
 }
 
 .hero-content h1 span {
-  color: #ff9900;
-  text-shadow: 0 0 8px #ff9900;
+  color: #f90;
+  text-shadow: 0 0 8px #f90;
   font-weight: bold;
 }
 
@@ -660,7 +688,7 @@ button:focus,
 }
 
 .hero-btn {
-  background-color: #ff9900;
+  background-color: #f90;
   color: #0f172a;
   padding: 12px 24px;
   font-weight: bold;
@@ -674,7 +702,7 @@ button:focus,
 
 .hero-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 12px #ff9900;
+  box-shadow: 0 0 12px #f90;
 }
 
 /* -------------------------
@@ -708,35 +736,36 @@ button:focus,
 }
 
 .site-footer span.animated-chase {
-  color: #ff9900;
+  color: #f90;
   font-weight: bold;
-  text-shadow: 0 0 6px #ff9900;
+  text-shadow: 0 0 6px #f90;
 }
 
 .animated-chase,
 .animated-ijoba {
   display: inline-block;
-  color: #ff9900;
+  color: #f90;
   font-weight: bold;
   animation: glowPulse 2.5s ease-in-out infinite;
   text-shadow:
-    0 0 8px #ff9900,
-    0 0 16px #ff9900;
+    0 0 8px #f90,
+    0 0 16px #f90;
 }
 
 @keyframes glowPulse {
   0%,
   100% {
     text-shadow:
-      0 0 6px #ff9900,
-      0 0 12px #ff9900;
+      0 0 6px #f90,
+      0 0 12px #f90;
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     text-shadow:
-      0 0 16px #ff9900,
-      0 0 24px #ffaa33;
+      0 0 16px #f90,
+      0 0 24px #fa3;
     transform: scale(1.05);
     opacity: 0.9;
   }
@@ -747,16 +776,17 @@ button:focus,
   margin-top: 30px;
   padding: 20px;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgb(255 255 255 / 10%);
 }
 
 .menu-signature {
-  color: #ff9900;
+  color: #f90;
   font-weight: bold;
   font-family: monospace;
   font-size: 0.9rem;
   white-space: pre-wrap;
-  word-break: break-word;
+  overflow-wrap: break-word; /* ✅ Modern replacement */
+  word-break: break-word; /* ✅ still kept for legacy fallback, optional */
   line-height: 1.6;
 }
 
@@ -770,13 +800,14 @@ button:focus,
   0%,
   100% {
     text-shadow:
-      0 0 4px #ff9900,
-      0 0 10px #ff9900;
+      0 0 4px #f90,
+      0 0 10px #f90;
   }
+
   50% {
     text-shadow:
-      0 0 8px #ffaa33,
-      0 0 20px #ffaa33;
+      0 0 8px #fa3,
+      0 0 20px #fa3;
   }
 }
 
@@ -807,7 +838,7 @@ button:focus,
   background-color: white;
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 7%);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -815,7 +846,7 @@ button:focus,
 
 .product-card:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 10%);
 }
 
 .product-card img {
@@ -838,7 +869,7 @@ button:focus,
 }
 
 .buy-button {
-  background-color: #ff9900;
+  background-color: #f90;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -855,7 +886,7 @@ button:focus,
 /* 🔹 Admin Upload Form */
 .product-upload {
   padding: 80px 20px;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #0f172a;
   text-align: center;
   border-top: 1px solid #e5e7eb;
